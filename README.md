@@ -1,4 +1,4 @@
-# climate_fintech_app
+# Climate Fintech
 
 A new Flutter project.
 
