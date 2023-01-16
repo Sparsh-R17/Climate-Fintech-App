@@ -4,7 +4,7 @@ class DrawerList {
   final Color boxColor;
   final String listName;
   final String listTag;
-  final IconData icon;
+  final String icon;
 
   DrawerList({
     required this.boxColor,
