@@ -3,116 +3,41 @@ import 'package:flutter/material.dart';
 import '../config/colors.dart';
 
 class DrawerListTile extends StatelessWidget {
-  const DrawerListTile({super.key});
+  final Color containerColor;
+  final String name;
+  final String containerImage;
+  final String tagName;
+  final IconData tileIcon;
+
+  const DrawerListTile({
+    super.key,
+    required this.containerColor,
+    required this.name,
+    required this.containerImage,
+    required this.tagName,
+    required this.tileIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.brown,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/user_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Profile'),
-              Text('@username'),
-            ],
-          ),
+    return ListTile(
+      leading: Container(
+        height: MediaQuery.of(context).size.height * 0.05,
+        width: MediaQuery.of(context).size.width * 0.11,
+        decoration: BoxDecoration(
+          color: containerColor,
+          borderRadius: BorderRadius.circular(10),
         ),
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.green,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/socialmedia_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Your Social Networks'),
-            ],
-          ),
-        ),
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.pink,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/notifications_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Notifications'),
-            ],
-          ),
-        ),
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.brown,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/privacy_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Privacy'),
-            ],
-          ),
-        ),
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.green,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/darkmode_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Dark Mode'),
-            ],
-          ),
-        ),
-        ListTile(
-          leading: Container(
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: MediaQuery.of(context).size.width * 0.11,
-            decoration: BoxDecoration(
-              color: AppColor.pink,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset('assets/images/help_icon.png'),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Help'),
-            ],
-          ),
-        ),
-      ],
+        child: Image.asset(containerImage),
+      ),
+      trailing: Icon(tileIcon),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(name),
+          Text(tagName),
+        ],
+      ),
     );
   }
 }

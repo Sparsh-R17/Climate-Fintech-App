@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './drawer_list_tile.dart';
+import '../config/drawer_data.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -22,12 +23,20 @@ class CustomDrawer extends StatelessWidget {
             child: Image.asset('assets/images/card_design.png'),
           ),
           Expanded(
-            child: ListView(
-              children: const [
-                DrawerListTile(),
-              ],
+            child: ListView.builder(
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return DrawerListTile(
+                  containerColor: drawerList[index].boxColor,
+                  containerImage: drawerList[index].icon,
+                  name: drawerList[index].listName,
+                  tagName: drawerList[index].listTag,
+                  tileIcon: drawerList[index].trailingIcon,
+                );
+              },
             ),
-          )
+          ),
+          
         ],
       ),
     );
