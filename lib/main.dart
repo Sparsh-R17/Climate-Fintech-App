@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '/screens/tabs_Screen.dart';
+import '/screens/tabs_screen.dart';
 import 'providers/disaster_provider.dart';
 
 void main() {
