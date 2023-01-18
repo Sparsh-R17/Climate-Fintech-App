@@ -8,6 +8,7 @@ class CurrentDisaster {
   final DateTime dateTime;
   final String source;
   final Color cardColor;
+  final Color iconColor;
 
   CurrentDisaster({
     required this.disasterPic,
@@ -17,5 +18,6 @@ class CurrentDisaster {
     required this.source,
     required this.cardColor,
     required this.dateTime,
+    required this.iconColor,
   });
 }

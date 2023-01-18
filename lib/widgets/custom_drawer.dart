@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './drawer_list_tile.dart';
 import '../config/drawer_data.dart';
@@ -18,9 +19,67 @@ class CustomDrawer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-            child: Image.asset('assets/images/card_design.png'),
+          Center(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/card_design.png'),
+                ),
+              ),
+              margin: EdgeInsets.only(
+                top: MediaQuery.of(context).viewPadding.top + 10,
+                right: MediaQuery.of(context).size.width * 0.05,
+                left: MediaQuery.of(context).size.width * 0.05,
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: CircleAvatar(
+                            radius: 43,
+                            foregroundImage:
+                                AssetImage('assets/images/Profile Picture.png'),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.015,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Welcome Back,',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.002,
+                            ),
+                            Text(
+                              'CrimeMasterGogo',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: ListView.builder(
