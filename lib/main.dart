@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-import 'screens/first_page.dart';
+import '/screens/tabs_Screen.dart';
+import 'providers/disaster_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,14 +24,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CFA',
-      theme: ThemeData(
-        textTheme: GoogleFonts.interTextTheme(
-          Theme.of(context).textTheme,
+    return ChangeNotifierProvider(
+      create: (context) => CurrentDisasterProvider(),
+      child: MaterialApp(
+        title: 'CFA',
+        theme: ThemeData(
+          textTheme: GoogleFonts.interTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
+        home: const TabsScreen(),
       ),
-      home: const FirstPage(),
     );
   }
 }
