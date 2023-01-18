@@ -24,6 +24,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 24, 18.8, 24),
               itemCount: 6,
               itemBuilder: (context, index) {
                 return DrawerListTile(
@@ -36,7 +37,6 @@ class CustomDrawer extends StatelessWidget {
               },
             ),
           ),
-          
         ],
       ),
     );

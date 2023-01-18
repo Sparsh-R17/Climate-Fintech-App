@@ -22,8 +22,8 @@ class DrawerListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
-        height: MediaQuery.of(context).size.height * 0.05,
-        width: MediaQuery.of(context).size.width * 0.11,
+        height: MediaQuery.of(context).size.height * 0.04,
+        width: MediaQuery.of(context).size.width * 0.10,
         decoration: BoxDecoration(
           color: containerColor,
           borderRadius: BorderRadius.circular(10),
@@ -35,7 +35,9 @@ class DrawerListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(name),
-          Text(tagName),
+          Text(tagName,
+              style: const TextStyle(
+                  color: Color.fromRGBO(186, 186, 186, 100), fontSize: 12)),
         ],
       ),
     );
