@@ -35,7 +35,6 @@ class _DisasterCarouselState extends State<DisasterCarousel> {
           onPageChanged: ((index, reason) {
             setState(() {
               disasterContainer.changeCarousel(index);
-
             });
           }),
           scrollDirection: Axis.horizontal,
