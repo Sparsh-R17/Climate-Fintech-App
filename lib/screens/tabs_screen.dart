@@ -33,9 +33,15 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
+    setState(
+      () {
+        _selectedPageIndex = index;
+        if (index == 0) {
+          print('Change Carousel Design');
+        }
+        print(index);
+      },
+    );
   }
 
   @override
@@ -77,7 +83,16 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Donations',
           ),
         ],
-        onTap: _selectPage,
+        onTap: (value) {
+          setState(() {
+            if (value == 0 && _selectedPageIndex == 1) {
+              print('Rebuild Carousel Design');
+              disasterContainer.changeCarousel(value);
+            }
+            _selectedPageIndex = value;
+            print(_selectedPageIndex);
+          });
+        },
       ),
     );
   }
