@@ -92,6 +92,7 @@ class CustomDrawer extends StatelessWidget {
                   name: drawerList[index].listName,
                   tagName: drawerList[index].listTag,
                   tileIcon: drawerList[index].trailingIcon,
+                  index: index
                 );
               },
             ),
