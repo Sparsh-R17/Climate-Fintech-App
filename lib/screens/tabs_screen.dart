@@ -50,6 +50,7 @@ class _TabsScreenState extends State<TabsScreen> {
     final disaster = disasterContainer.disasterList;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: const Color(0xfffafafa),

@@ -68,7 +68,9 @@ class _DrawerListTileState extends State<DrawerListTile> {
             Text(
               widget.tagName,
               style: const TextStyle(
-                  color: Color.fromARGB(156, 157, 152, 152), fontSize: 12),
+                color: Color.fromARGB(156, 157, 152, 152),
+                fontSize: 12,
+              ),
             ),
           ],
         ),

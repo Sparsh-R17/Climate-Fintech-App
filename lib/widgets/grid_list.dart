@@ -1,9 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class PageGrid extends StatefulWidget {
   const PageGrid({super.key});
@@ -13,32 +8,41 @@ class PageGrid extends StatefulWidget {
 }
 
 class _PageGridState extends State<PageGrid> {
-  List<String> img = [
-    'assets/images/solar_image.png',
-    'assets/images/water_image.png',
-    'assets/images/animal_image.png',
-    'assets/images/forest_image.png',
-    'assets/images/environment_picture.png',
-    'assets/images/landslide_image.png',
-    
-  ];
-  List<String> txt = [
-    'Solar',
-    'Water',
-    'Animals',
-    'Forest',
-    
-    'Environment',
-    'Donations',
+  final List _gridData = [
+    {
+      'img': 'assets/images/solar_image.png',
+      'txt': 'Solar',
+    },
+    {
+      'img': 'assets/images/water_image.png',
+      'txt': 'Water',
+    },
+    {
+      'img': 'assets/images/animal_image.png',
+      'txt': 'Animals',
+    },
+    {
+      'img': 'assets/images/forest_image.png',
+      'txt': 'Forest',
+    },
+    {
+      'img': 'assets/images/environment_picture.png',
+      'txt': 'Environment',
+    },
+    {
+      'img': 'assets/images/landslide_image.png',
+      'txt': 'Donations',
+    },
   ];
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: GridView.builder(
-          itemCount: 6,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: _gridData.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 5,
             crossAxisSpacing: 5,
@@ -49,24 +53,25 @@ class _PageGridState extends State<PageGrid> {
                 print('Pressed');
               }),
               child: Container(
-                margin: EdgeInsets.all(15),
+                margin: const EdgeInsets.all(15),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
-                            img[index],
+                            _gridData[index]['img'],
                           ),
                           fit: BoxFit.fill),
                     ),
                     child: Container(
-                      decoration:
-                          BoxDecoration(color: Colors.black.withOpacity(0.40)),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.40),
+                      ),
                       child: Center(
                         child: Text(
-                          txt[index],
-                          style: TextStyle(
+                          _gridData[index]['txt'],
+                          style: const TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.bold,

@@ -1,0 +1,9 @@
+{
+  "githubPullRequests.ignoredPullRequestBranches": ["master"],
+  "cSpell.words": [
+    "accnumcontroller",
+    "agecontroller",
+    "banknamecontroller",
+    "mobilecontroller"
+  ]
+}

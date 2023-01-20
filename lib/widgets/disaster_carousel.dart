@@ -1,8 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:climate_fintech_app/providers/disaster_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
 
+import '/providers/disaster_provider.dart';
 import 'carousel_tile.dart';
 
 class DisasterCarousel extends StatefulWidget {
@@ -32,11 +32,11 @@ class _DisasterCarouselState extends State<DisasterCarousel> {
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
           enlargeFactor: 0.3,
-          onPageChanged: ((index, reason) {
+          onPageChanged: (index, reason) {
             setState(() {
               disasterContainer.changeCarousel(index);
             });
-          }),
+          },
           scrollDirection: Axis.horizontal,
         ),
         itemBuilder: (context, index, realIndex) {
