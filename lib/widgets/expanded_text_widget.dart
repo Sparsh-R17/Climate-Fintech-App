@@ -2,7 +2,6 @@ import 'package:climate_fintech_app/config/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class ExpandableTextWidget extends StatefulWidget {
   final String text;
   const ExpandableTextWidget({
@@ -40,8 +39,8 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
     return Container(
       child: secondHalf.isEmpty
           ? Text(
-            firstHalf,
-          )
+              firstHalf,
+            )
           : Column(
               children: [
                 Text(
@@ -63,8 +62,8 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                       ),
                       Icon(
                         hiddenText
-                        ?Icons.arrow_drop_down
-                        :Icons.arrow_drop_up,
+                            ? Icons.arrow_drop_down
+                            : Icons.arrow_drop_up,
                         color: AppColor.iconGreen,
                       )
                     ],
