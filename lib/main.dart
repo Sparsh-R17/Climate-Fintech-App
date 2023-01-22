@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '/screens/info_page.dart';
-import '/widgets/company_list.dart';
+import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
 import 'providers/disaster_provider.dart';
 

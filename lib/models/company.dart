@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Company {
-  final int id;
+  final String? id;
   final String img;
+
   final Color color;
   final Color accentColor;
   final String name;
