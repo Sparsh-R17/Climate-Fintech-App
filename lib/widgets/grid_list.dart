@@ -1,3 +1,4 @@
+import 'package:climate_fintech_app/widgets/company_list.dart';
 import 'package:flutter/material.dart';
 
 import '/config/causes_list.dart';
@@ -26,7 +27,7 @@ class _PageGridState extends State<PageGrid> {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                print('Pressed');
+                Navigator.of(context).pushNamed(CompanyList.routeName);
               },
               child: Container(
                 margin: const EdgeInsets.all(15),

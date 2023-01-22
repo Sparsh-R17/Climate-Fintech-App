@@ -32,18 +32,6 @@ class _TabsScreenState extends State<TabsScreen> {
     super.initState();
   }
 
-  void _selectPage(int index) {
-    setState(
-      () {
-        _selectedPageIndex = index;
-        if (index == 0) {
-          print('Change Carousel Design');
-        }
-        print(index);
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
@@ -85,13 +73,12 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ],
         onTap: (value) {
+          //For Matching the carousel index with the bottom navbar
           setState(() {
             if (value == 0 && _selectedPageIndex == 1) {
-              print('Rebuild Carousel Design');
               disasterContainer.changeCarousel(value);
             }
             _selectedPageIndex = value;
-            print(_selectedPageIndex);
           });
         },
       ),

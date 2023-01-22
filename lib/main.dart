@@ -1,10 +1,10 @@
-import 'package:climate_fintech_app/screens/info_page.dart';
-import 'package:climate_fintech_app/widgets/company_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '/screens/info_page.dart';
+import '/widgets/company_list.dart';
 import '/screens/tabs_screen.dart';
 import 'providers/disaster_provider.dart';
 
@@ -35,7 +35,10 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme,
           ),
         ),
-        home: const CompanyList(),
+        routes: {
+          '/': (context) => const TabsScreen(),
+          CompanyList.routeName: (context) => const CompanyList(),
+        },
       ),
     );
   }
