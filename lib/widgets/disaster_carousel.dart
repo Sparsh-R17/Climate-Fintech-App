@@ -20,7 +20,7 @@ class _DisasterCarouselState extends State<DisasterCarousel> {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
     final disasterCard = disasterContainer.disasterList;
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.27,
       child: CarouselSlider.builder(
         itemCount: disasterCard.length,
         options: CarouselOptions(
