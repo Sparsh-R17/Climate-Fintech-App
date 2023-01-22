@@ -1,5 +1,3 @@
-import 'package:climate_fintech_app/screens/info_page.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme,
           ),
         ),
-        home: const InfoPage(),
+        home: const TabsScreen(),
       ),
     );
   }

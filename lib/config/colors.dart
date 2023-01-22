@@ -16,4 +16,6 @@ class AppColor {
   static const iconPink = Color(0xffCB9191);
   static const iconYellow = Color(0xffB1A250);
   static const iconLightBrown = Color(0xffECBE75);
+
+  static const compGreen = Color(0xff9FC994);
 }
