@@ -52,7 +52,7 @@ class CarouselTile extends StatelessWidget {
                   ),
                   child: Image.asset(
                     img,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),

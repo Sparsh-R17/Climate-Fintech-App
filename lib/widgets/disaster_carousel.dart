@@ -24,7 +24,8 @@ class _DisasterCarouselState extends State<DisasterCarousel> {
       child: CarouselSlider.builder(
         itemCount: disasterCard.length,
         options: CarouselOptions(
-          height: 405,
+          // height: 400,
+          height: MediaQuery.of(context).size.height * 0.5,
           aspectRatio: 16 / 9,
           initialPage: 0,
           viewportFraction: 0.75,

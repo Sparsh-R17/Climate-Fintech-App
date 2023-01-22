@@ -1,164 +1,22 @@
+import 'dart:ui';
+
 import '/config/colors.dart';
 import '../models/company.dart';
 
 List<Company> companyData = [
+  //forest->1
   Company(
-    expandButton: AppColor.compAccentGreen,
+    expandButton: const Color.fromARGB(255, 148, 200, 135),
     companyTag: 'f1',
     appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.lightBrown,
-    accentColor: AppColor.lightBrown.withOpacity(0.63),
-    buttonColor: AppColor.iconLightBrown,
-    email: 'info@saytress.org',
-    //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
-    mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
-    ],
-    info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
-    shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-    address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
-    ],
-  ),
-  Company(
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.lightBrown,
-    accentColor: AppColor.lightBrown.withOpacity(0.63),
-    buttonColor: AppColor.iconLightBrown,
-    email: 'info@saytress.org',
-    //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
-    mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
-    ],
-    info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
-    shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-    address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
-    ],
-  ),
-  Company(
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.lightBrown,
-    accentColor: AppColor.lightBrown.withOpacity(0.63),
-    buttonColor: AppColor.iconLightBrown,
-    email: 'info@saytress.org',
-    //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
-    mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
-    ],
-    info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
-    shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-    address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
-    ],
-  ),
-  Company(
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '2',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.blue,
-    accentColor: AppColor.blue.withOpacity(0.63),
-    buttonColor: AppColor.iconBlue,
-    email: 'info@saytress.org',
-    //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
-    mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
-    ],
-    info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
-    shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-    address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
-    ],
-  ),
-  Company(
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    id: '3',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.pink,
-    accentColor: AppColor.pink.withOpacity(0.63),
-    buttonColor: AppColor.iconPink,
-    email: 'info@saytress.org',
-    //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
-    mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
-    ],
-    info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
-    shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-    address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
-    ],
-  ),
-  Company(
     id: '4',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
     img: 'assets/images/say_trees.png',
-    color: AppColor.brown,
-    accentColor: AppColor.brown.withOpacity(0.63),
-    buttonColor: AppColor.iconBrown,
+    color: AppColor.compGreen,
+    accentColor: AppColor.compGreen.withOpacity(0.63),
+    buttonColor: AppColor.compGreen,
     email: 'info@saytress.org',
     //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
+    website: 'https://www.saytrees.org',
     name: 'SAYTREES ENVIRONMENTAL TRUST',
     mobile: [
       '+91 - 96635 77758',
@@ -176,122 +34,142 @@ List<Company> companyData = [
       'Bengaluru, Karnataka - 560100',
     ],
   ),
+  //forest ->2
   Company(
-    id: '5',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
+    expandButton: AppColor.iconGreen,
+    companyTag: 'f2',
     appBarTitle: 'Forest Preserver StartUps/NGOs',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.green,
-    accentColor: AppColor.green.withOpacity(0.63),
-    buttonColor: AppColor.iconGreen,
-    email: 'info@saytress.org',
+    id: '4',
+    img: 'assets/images/forrest2_image.jpg',
+    color: AppColor.compGreen,
+    accentColor: AppColor.compGreen.withOpacity(0.63),
+    buttonColor: AppColor.compGreen,
+    email: 'connect@forrest-india.org',
     //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST2',
+    website: 'https://www.forrest-india.org/donate/',
+    name: 'Forrest',
     mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
+      '+91 - 9890288011',
+      '+91 - 9403407269',
     ],
     info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
+        'FORREST-Forest Regeneration and Environmental Sustainability Trust, was born on OCT 2015. It is registered as a not-for-profit organization (NGO). We conceptualized FORREST to strengthen the bond between humans and nature and to create a path for harmonious co-existence.FORREST is strategically focusing on Aichi Biodiversity targets through work by-Mainstreaming Biodiversity Promoting sustainable use of resources Conservation of habitats through research & action Ecosystem Services Evaluation Knowledge management and capacity building of the stakeholders',
     shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
+        'Focusing on Aichi Biodiversity targets through work by-Mainstreaming Biodiversity Promoting sustainable use of resources.',
     address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
+      'G25 Aditya Nisarg Society',
+      ' Pirangut, Mulshi Road, Pune - 412115',
     ],
   ),
+  //forest->3
   Company(
+    expandButton: AppColor.iconGreen,
+    companyTag: 'f3',
     appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '5',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.green,
-    accentColor: AppColor.green.withOpacity(0.63),
-    buttonColor: AppColor.iconGreen,
-    email: 'info@saytress.org',
+    id: '4',
+    img: 'assets/images/greenyatra2_image.jpg',
+    color: AppColor.compGreen,
+    accentColor: AppColor.compGreen.withOpacity(0.63),
+    buttonColor: AppColor.compGreen,
+    email: 'N/A',
     //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST3',
+    website: 'https://www.greenyatra.org/donate.php',
+    name: 'Green Yatra',
     mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
+      '+91 - 22 6661 6649',
+      '+91 - 99675 38049',
     ],
     info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
+        'As ecofriendly alternatives already exist. And so, they initiated the Go Green Ganesha project within their locality, targeting schools, colleges and housing communities. Following the huge success and positive response towards this program, they began Go Green Kids. It was an innovative education initiative to sensitize and educate children towards environmental protection and improvement-with the motive that kids will teach their parents to go green in their everyday lives and be responsible towards nature. In 2010, Green Yatra registered as an NGO and expanded to thousands of schools, colleges and housing societies, after which Zaroorat, Green Youth Green India and many more environmental projects began. ',
     shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
+        'To connect people with nature in urban spaces through tree plantations and rejuvenating the ecosystem.',
     address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
+      '308, Eco Star, Vishveshwar Nagar Rd, C',
+      'huri Wadi, Goregaon (East) Mumbai - 400063 Maharashtra, India.',
     ],
   ),
+  //solar->1
   Company(
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '5',
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.green,
-    accentColor: AppColor.green.withOpacity(0.63),
-    buttonColor: AppColor.iconGreen,
-    email: 'info@saytress.org',
+    appBarTitle: 'Solar Energy Utilization StartUps/NGOs',
+    id: '1',
+    expandButton: AppColor.iconYellow,
+    companyTag: 's1',
+    img: 'assets/images/solarenergy_image.jpg',
+    color: AppColor.yellow,
+    accentColor: AppColor.yellow.withOpacity(0.63),
+    buttonColor: AppColor.yellow,
+    email: 'info@solarvillageproject.org',
     //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
+    website: 'https://www.solarvillageproject.org/',
+    name: 'Solar Village Project',
     mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
+      'NA',
+      'NA',
     ],
     info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
+        'We provide solar power solutions to youth, families and individuals living in impoverished rural villages, schools and clinics, limiting the negative impacts of an unreliable grid and from natural disasters. ',
     shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
+        'To fight climate change and alleviate the energy poverty of disenfranchised rural communities in the developing world',
     address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
+      'Unit 3029',
+      '1296 Cronson BLVD',
     ],
   ),
+  //solar ->2
   Company(
-    expandButton: AppColor.compAccentGreen,
-    companyTag: 'f1',
-    appBarTitle: 'Forest Preserver StartUps/NGOs',
-    id: '6',
-    img: 'assets/images/say_trees.png',
-    color: AppColor.grey,
-    accentColor: AppColor.grey.withOpacity(0.63),
-    buttonColor: AppColor.iconGrey,
-    email: 'info@saytress.org',
+    appBarTitle: 'Solar Energy Utilization StartUps/NGOs',
+    expandButton: AppColor.iconYellow,
+    companyTag: 's2',
+    id: '1',
+    img: 'assets/images/solaraid2_image.jpg',
+    color: AppColor.yellow,
+    accentColor: AppColor.yellow.withOpacity(0.63),
+    buttonColor: AppColor.yellow,
+    email: 'info@solar-aid.org',
     //TODO need to add the website of the comapny here
-    website: 'Link Of Website',
-    name: 'SAYTREES ENVIRONMENTAL TRUST',
+    website: 'https://solar-aid.org/donate/',
+    name: 'Solar Aid',
     mobile: [
-      '+91 - 96635 77758',
-      '+91 - 96635 77748',
-      '+91 - 99102 98215',
+      '+44 (0) 20 7278 0400',
+      'N/A',
     ],
     info:
-        'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
+        '590 million people across sub-Saharan Africa live without electricity. When the sun goes down the working day ends for millions of people. For millions of others the only option is to ignite kerosene lamps and paraffin candles, which emit toxic fumes into the earth’s atmosphere. But with the flick of a switch, we can change that story. Every solar light in someone’s hand is an instant win for people and the planet. ',
     shortInfo:
-        'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
+        'To lightup every house, clinics in Africa by 2030, using safe and clean solar supply',
     address: [
-      'SayTrees',
-      'No. 6, 1st cross, first floor',
-      'Basapura, Near Hosa Road Junction',
-      'Bengaluru, Karnataka - 560100',
+      'SolarAid, Creative Works, First Floor',
+      ' 7 Blackhorse Lane, London E17 6DS',
     ],
   ),
+  //solar->3
+  Company(
+    id: '1',
+    expandButton: AppColor.iconYellow,
+    companyTag: 's3',
+    appBarTitle: 'Solar Energy Utilization StartUps/NGOs',
+    img: 'assets/images/grid2_image.jpg',
+    color: AppColor.yellow,
+    accentColor: AppColor.yellow.withOpacity(0.63),
+    buttonColor: AppColor.yellow,
+    email: 'info@saytress.org',
+    //TODO need to add the website of the comapny here
+    website: 'info@gridalternatives.org',
+    name: 'Grid Alternative',
+    mobile: [
+      '(510) 731-1310',
+      'NA',
+    ],
+    info:
+        'GRID Alternatives envisions a rapid, equitable transition to a world powered by renewable energy that benefits everyone. Our mission is to build community-powered solutions to advance economic and environmental justice through renewable energy.',
+    shortInfo:
+        'The idea that drove them was simple: free, clean electricity from the sun should be available to everyone.',
+    address: [
+      'Grid Alternative',
+      'Headquarters, 1171 Ocean Avenue Suit',
+    ],
+  ),
+
   Company(
     expandButton: AppColor.blue.withOpacity(0.7),
     companyTag: 'w1',

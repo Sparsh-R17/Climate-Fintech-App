@@ -15,9 +15,10 @@ class _PageGridState extends State<PageGrid> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        // color: Colors.red,
         margin: const EdgeInsets.all(10),
         child: GridView.builder(
-          physics: const NeverScrollableScrollPhysics(),
+          // physics: const NeverScrollableScrollPhysics(),
           itemCount: causesList.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
