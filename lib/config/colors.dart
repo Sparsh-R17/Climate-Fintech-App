@@ -18,4 +18,5 @@ class AppColor {
   static const iconLightBrown = Color(0xffECBE75);
 
   static const compGreen = Color(0xff9FC994);
+  static const compAccentGreen = Color(0xff9FC994);
 }
