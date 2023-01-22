@@ -14,6 +14,9 @@ class HomePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: const [
+              SizedBox(
+                height: 10,
+              ),
               DisasterCarousel(),
               SizedBox(
                 height: 30,

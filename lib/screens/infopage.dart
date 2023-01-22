@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../config/colors.dart';
 
-
 class InfoPg extends StatefulWidget {
+  static const routeName = '/info-page';
   const InfoPg({super.key});
 
   @override
@@ -19,9 +16,9 @@ class _InfoPgState extends State<InfoPg> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
           child: Stack(
             children: [
               //image

@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '/screens/company_info_screen.dart';
+import '/screens/payment.dart';
 import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
 import 'providers/disaster_provider.dart';
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const TabsScreen(),
           CompanyList.routeName: (context) => const CompanyList(),
+          CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
+          PaymentPage.routeName: (context) => const PaymentPage(),
         },
       ),
     );

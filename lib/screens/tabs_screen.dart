@@ -41,7 +41,7 @@ class _TabsScreenState extends State<TabsScreen> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: const Color(0xfffafafa),
+        backgroundColor: disaster[disasterContainer.cardIndex].cardColor,
         elevation: 0,
         title: const Padding(
           padding: EdgeInsets.only(bottom: 4),

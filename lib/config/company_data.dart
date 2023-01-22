@@ -6,14 +6,14 @@ import '../models/company.dart';
 List<Company> companyData = [
   //forest->1
   Company(
-    expandButton: const Color.fromARGB(255, 148, 200, 135),
+    expandButton: AppColor.iconGreen,
     companyTag: 'f1',
     appBarTitle: 'Forest Preserver StartUps/NGOs',
     id: '4',
     img: 'assets/images/say_trees.png',
     color: AppColor.compGreen,
     accentColor: AppColor.compGreen.withOpacity(0.63),
-    buttonColor: AppColor.compGreen,
+    buttonColor: AppColor.iconGreen,
     email: 'info@saytress.org',
     //TODO need to add the website of the comapny here
     website: 'https://www.saytrees.org',
@@ -43,7 +43,7 @@ List<Company> companyData = [
     img: 'assets/images/forrest2_image.jpg',
     color: AppColor.compGreen,
     accentColor: AppColor.compGreen.withOpacity(0.63),
-    buttonColor: AppColor.compGreen,
+    buttonColor: AppColor.iconGreen,
     email: 'connect@forrest-india.org',
     //TODO need to add the website of the comapny here
     website: 'https://www.forrest-india.org/donate/',
@@ -70,7 +70,7 @@ List<Company> companyData = [
     img: 'assets/images/greenyatra2_image.jpg',
     color: AppColor.compGreen,
     accentColor: AppColor.compGreen.withOpacity(0.63),
-    buttonColor: AppColor.compGreen,
+    buttonColor: AppColor.iconGreen,
     email: 'N/A',
     //TODO need to add the website of the comapny here
     website: 'https://www.greenyatra.org/donate.php',
@@ -97,7 +97,7 @@ List<Company> companyData = [
     img: 'assets/images/solarenergy_image.jpg',
     color: AppColor.yellow,
     accentColor: AppColor.yellow.withOpacity(0.63),
-    buttonColor: AppColor.yellow,
+    buttonColor: AppColor.iconYellow,
     email: 'info@solarvillageproject.org',
     //TODO need to add the website of the comapny here
     website: 'https://www.solarvillageproject.org/',
@@ -124,7 +124,7 @@ List<Company> companyData = [
     img: 'assets/images/solaraid2_image.jpg',
     color: AppColor.yellow,
     accentColor: AppColor.yellow.withOpacity(0.63),
-    buttonColor: AppColor.yellow,
+    buttonColor: AppColor.iconYellow,
     email: 'info@solar-aid.org',
     //TODO need to add the website of the comapny here
     website: 'https://solar-aid.org/donate/',
@@ -151,7 +151,7 @@ List<Company> companyData = [
     img: 'assets/images/grid2_image.jpg',
     color: AppColor.yellow,
     accentColor: AppColor.yellow.withOpacity(0.63),
-    buttonColor: AppColor.yellow,
+    buttonColor: AppColor.iconYellow,
     email: 'info@saytress.org',
     //TODO need to add the website of the comapny here
     website: 'info@gridalternatives.org',

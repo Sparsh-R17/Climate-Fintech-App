@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '/screens/company_info_screen.dart';
 import '../config/company_data.dart';
 import '../models/company.dart';
-import '/config/colors.dart';
 
 class CompanyList extends StatefulWidget {
   static const routeName = '/company-list';
@@ -28,9 +28,9 @@ class _CompanyListState extends State<CompanyList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: displayedCompanies![0].buttonColor,
-        title: const Text(
-          'Forest Preserver StartUps/NGOs',
-          style: TextStyle(
+        title: Text(
+          displayedCompanies![0].appBarTitle,
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 18,
             fontStyle: FontStyle.normal,
@@ -41,7 +41,6 @@ class _CompanyListState extends State<CompanyList> {
       body: Container(
         margin: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.01,
-          // vertical: MediaQuery.of(context).size.height * 0.03,
         ),
         height: MediaQuery.of(context).size.height * 0.7,
         width: MediaQuery.of(context).size.width * 0.98,
@@ -73,9 +72,11 @@ class _CompanyListState extends State<CompanyList> {
                                     MediaQuery.of(context).size.height * 0.02,
                               ),
                               child: Text(
+                                maxLines: 4,
                                 displayedCompanies![index].shortInfo,
                                 style: const TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 15,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ),
@@ -84,7 +85,12 @@ class _CompanyListState extends State<CompanyList> {
                                 right: MediaQuery.of(context).size.width * 0.03,
                               ),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed(
+                                      CompanyInfoScreen.routeName,
+                                      arguments: displayedCompanies![index]
+                                          .companyTag);
+                                },
                                 style: ButtonStyle(
                                   splashFactory: NoSplash.splashFactory,
                                   shape: MaterialStateProperty.all(
@@ -174,7 +180,6 @@ class _CompanyListState extends State<CompanyList> {
               child: InkWell(
                 onTap: () {
                   setState(() {
-                    // _expandClick = !_expandClick;
                     if (_selectedList == index) {
                       _selectedList = -1;
                     } else {
@@ -186,7 +191,7 @@ class _CompanyListState extends State<CompanyList> {
                   width: MediaQuery.of(context).size.width * 0.10,
                   height: MediaQuery.of(context).size.height * 0.04,
                   decoration: BoxDecoration(
-                    color: displayedCompanies![index].buttonColor,
+                    color: Color.fromARGB(128, 255, 255, 255),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Icon(
