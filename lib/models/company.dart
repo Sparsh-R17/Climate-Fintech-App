@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Company {
+  final String companyTag;
   final String? id;
   final String img;
-
+  final String appBarTitle;
   final Color color;
   final Color accentColor;
   final String name;
@@ -14,9 +15,13 @@ class Company {
   final String email;
   final List<String> address;
   final Color buttonColor;
+  final Color expandButton;
 
   Company({
     required this.id,
+    required this.expandButton,
+    required this.companyTag,
+    required this.appBarTitle,
     required this.img,
     required this.color,
     required this.accentColor,

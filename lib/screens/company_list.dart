@@ -27,7 +27,7 @@ class _CompanyListState extends State<CompanyList> {
         .toList();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: displayedCompanies![0].color,
+        backgroundColor: displayedCompanies![0].buttonColor,
         title: const Text(
           'Forest Preserver StartUps/NGOs',
           style: TextStyle(
@@ -55,9 +55,9 @@ class _CompanyListState extends State<CompanyList> {
                       Container(
                         height: MediaQuery.of(context).size.height * 0.18,
                         width: MediaQuery.of(context).size.width * 0.97,
-                        decoration: const BoxDecoration(
-                          color: AppColor.green,
-                          borderRadius: BorderRadius.only(
+                        decoration: BoxDecoration(
+                          color: displayedCompanies![index].accentColor,
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15),
                           ),
@@ -72,9 +72,9 @@ class _CompanyListState extends State<CompanyList> {
                                 vertical:
                                     MediaQuery.of(context).size.height * 0.02,
                               ),
-                              child: const Text(
-                                'To reduce pollution and support farmers and connect people with nature in urban spaces thus fight climate crises.',
-                                style: TextStyle(
+                              child: Text(
+                                displayedCompanies![index].shortInfo,
+                                style: const TextStyle(
                                   fontSize: 18,
                                 ),
                               ),
@@ -126,30 +126,41 @@ class _CompanyListState extends State<CompanyList> {
                 topRight: Radius.circular(15),
               )
             : BorderRadius.circular(15),
-        color: AppColor.compGreen,
+        color: displayedCompanies![index].color,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.03,
+              left: MediaQuery.of(context).size.width * 0.02,
+              bottom: MediaQuery.of(context).size.height * 0.01,
               top: MediaQuery.of(context).size.height * 0.01,
             ),
-            child: Image.asset(
-              'assets/images/saytrees_forestcomp_icon.png',
-              alignment: Alignment.center,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.18,
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: Image.asset(
+                  displayedCompanies![index].img,
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
+          ),
+          const SizedBox(
+            width: 4,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.09,
             width: MediaQuery.of(context).size.width * 0.55,
-            child: const Center(
+            child: Center(
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text(
-                  'SayTrees Environmental Trust',
-                  style: TextStyle(
+                  displayedCompanies![index].name,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -175,7 +186,7 @@ class _CompanyListState extends State<CompanyList> {
                   width: MediaQuery.of(context).size.width * 0.10,
                   height: MediaQuery.of(context).size.height * 0.04,
                   decoration: BoxDecoration(
-                    color: const Color(0x9CD2E6CD),
+                    color: displayedCompanies![index].buttonColor,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Icon(

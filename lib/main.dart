@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'package:climate_fintech_app/infopage.dart';
 import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
 import 'providers/disaster_provider.dart';
