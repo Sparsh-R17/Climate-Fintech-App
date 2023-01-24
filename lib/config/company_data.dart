@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import '/config/colors.dart';
 import '../models/company.dart';
 
@@ -192,11 +190,9 @@ List<Company> companyData = [
     shortInfo:
         'Of all the social and natural crisis we face, water scarcity and pollution touch every facet of life, from the health of children to the ability of nations to secure food for their citizens. Finding out ways to handle this scarcity becomes all the more important in view of global warming and its predicted impact of creating a water crisis.',
     address: [
-      'FORCE',
-      'C8-8035',
+      'FORCE, C8-8035',
       'Vasant Kunj',
       'New Delhi 110070',
-      'INDIA',
     ],
   ),
   Company(
@@ -220,8 +216,7 @@ List<Company> companyData = [
     shortInfo:
         'Say Earth is a leading environmental NGO in India working for water conservation by restoration of water bodies and creating urban forests.',
     address: [
-      'SAY EARTH',
-      'EA 1/76',
+      'SAY EARTH, EA 1/76',
       '2nd Floor Inderpuri',
       'Delhi-110012',
     ],
@@ -274,9 +269,7 @@ List<Company> companyData = [
     address: [
       'CTS 166 / 167 Ashram, Madh - Marve Rd',
       'Malad West, Mumbai',
-      'Maharashtra',
-      '400061',
-      'India',
+      'Maharashtra - 400061',
     ],
   ),
   Company(
@@ -303,11 +296,8 @@ List<Company> companyData = [
         'Friendicoes is now a much bigger shelter under the same flyover in the same location and boasts of an Out Patient’s Department, an in-house clinic for the strays that accommodates about 150-200 animals at any point of time, two operation theaters, a Lab & X-ray unit as well as a sanctuary in Gurgaon that houses about a thousand animals. There is also round the clock ambulance service for the strays as well as an emergency night clinic for pets',
     address: [
       'No 271 & 273',
-      ' Defence Colony',
-      'Flyover Market',
-      'Jangpura Side',
-      'New Delhi',
-      '110024 | India',
+      'Defence Colony',
+      'New Delhi 110024',
     ],
   ),
   Company(
@@ -327,14 +317,13 @@ List<Company> companyData = [
       '+91-120-4143900',
     ],
     info:
-        'Wildlife Trust of India (WTI) was formed in 1998 in response to the many crises confronting India’s wildlife and wild habitats. A team of 3 members set out on a mission to save the environment.',
+        'Wildlife Trust of India (WTI) was formed in 1998 in response to the many crises confronting India\’s wildlife and wild habitats. A team of 3 members set out on a mission to save the environment.',
     shortInfo:
-        'Wildlife Trust of India (WTI) was formed in 1998 in response to the many crises confronting India’s wildlife and wild habitats. A team of 3 members set out on a mission to save the environment.',
+        'Wildlife Trust of India (WTI) was formed in 1998 in response to the many crises confronting India\’s wildlife and wild habitats. A team of 3 members set out on a mission to save the environment.',
     address: [
       'F-13, Sector 8',
       'National Capital Region (NCR)',
       'Noida 201301',
-      'India',
     ],
   ),
   Company(
@@ -358,10 +347,8 @@ List<Company> companyData = [
     shortInfo:
         'To empower rural India through the management of natural resources that would lead to the enhancement of the socio-economic conditions of villagers.',
     address: [
-      '498',
-      'Aditya Residency',
+      '498 Aditya Residency',
       'Mitramandal Chowk',
-      'Parvati',
       'Pune - 411009',
     ],
   ),
@@ -389,7 +376,6 @@ List<Company> companyData = [
       'R-84, Khirki Extension',
       'Malviya Nagar',
       'New Delhi 110017',
-      'India',
     ],
   ),
   Company(
@@ -413,12 +399,9 @@ List<Company> companyData = [
     shortInfo:
         'We work to generate environmental awareness and sensitivity among the masses, encourage and empower the youth to take green action and conceptualize and promote initiatives for environmental protection and sustainable development.',
     address: [
-      'D-16/57',
-      'Second Floor',
-      'Sector 7',
-      'Rohini',
+      'D-16/57 Second Floor',
+      'Sector 7 Rohini',
       'Delhi - 110085',
-      'India',
     ],
   ),
 ];
