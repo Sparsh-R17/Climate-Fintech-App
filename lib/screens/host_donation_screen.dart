@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import '/screens/tabs_screen.dart';
@@ -43,6 +45,45 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
               return 'Mobile Number should be of exact 10 digits';
             } else {
               return null;
+            }
+          } else if (varcontroller == agecontroller) {
+            if (value!.isEmpty) {
+              return '$boxReason cannot be empty';
+            }
+            // if (value.length > 2) {
+            if (int.tryParse(value)! < 18) {
+              return 'Age must be greater than 18 to host';
+            }
+          } else if (varcontroller == accnumcontroller) {
+            if (value!.isEmpty) {
+              return '$boxReason cannot be empty';
+            }
+            if (value.length < 9) {
+              return 'Account number must be greater than 9 digits';
+            }
+          }
+          if (varcontroller == ifsccontroller) {
+            if (value!.isEmpty) {
+              return '$boxReason cannot be empty';
+            }
+            if (value.length != 11) {
+              return 'IFSC Code should be of exact 11 digits';
+            }
+          }
+          if (varcontroller == pannumcontroller) {
+            if (value!.isEmpty) {
+              return '$boxReason cannot be empty';
+            }
+            if (value.length != 10) {
+              return 'Pan Number should be of exact 10 digits';
+            }
+          }
+          if (varcontroller == amtcontroller) {
+            if (value!.isEmpty) {
+              return '$boxReason cannot be empty';
+            }
+            if (int.tryParse(value) == null) {
+              return 'Donation Amount must be an integer';
             }
           } else {
             if (value!.isEmpty) {

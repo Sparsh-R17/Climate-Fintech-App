@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const LoginPage(),
+          '/': (context) => const TabsScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
           CompanyList.routeName: (context) => const CompanyList(),
