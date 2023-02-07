@@ -3,11 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'providers/disaster_provider.dart';
+
 import '/screens/company_info_screen.dart';
 import '/screens/payment.dart';
 import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
-import 'providers/disaster_provider.dart';
+import './screens/login.dart';
+import './screens/signup.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +40,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const TabsScreen(),
+          '/': (context) => const LoginPage(),
+          LoginPage.routeName: (context) => const LoginPage(),
+          SignUp.routeName: (context) => const SignUp(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),

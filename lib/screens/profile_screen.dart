@@ -18,8 +18,9 @@ class ProfileScreen extends StatelessWidget {
                   bottomRight: Radius.circular(30),
                 ),
                 image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/images/profilecard_image.png')),
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/profilecard_image.png'),
+                ),
               ),
             ),
             Padding(

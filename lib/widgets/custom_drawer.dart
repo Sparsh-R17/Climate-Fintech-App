@@ -26,7 +26,7 @@ class CustomDrawer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/card_design.png'),
+                  image: AssetImage('assets/images/png/card_design.png'),
                 ),
               ),
               margin: EdgeInsets.only(
@@ -43,8 +43,8 @@ class CustomDrawer extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: CircleAvatar(
                             radius: 43,
-                            foregroundImage:
-                                AssetImage('assets/images/Profile Picture.png'),
+                            foregroundImage: AssetImage(
+                                'assets/images/png/Profile Picture.png'),
                           ),
                         ),
                         SizedBox(
@@ -66,7 +66,7 @@ class CustomDrawer extends StatelessWidget {
                                   MediaQuery.of(context).size.height * 0.002,
                             ),
                             Text(
-                              'CrimeMasterGogo',
+                              'UserName',
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -87,13 +87,12 @@ class CustomDrawer extends StatelessWidget {
               itemCount: 6,
               itemBuilder: (context, index) {
                 return DrawerListTile(
-                  containerColor: drawerList[index].boxColor,
-                  containerImage: drawerList[index].icon,
-                  name: drawerList[index].listName,
-                  tagName: drawerList[index].listTag,
-                  tileIcon: drawerList[index].trailingIcon,
-                  index: index
-                );
+                    containerColor: drawerList[index].boxColor,
+                    containerImage: drawerList[index].icon,
+                    name: drawerList[index].listName,
+                    tagName: drawerList[index].listTag,
+                    tileIcon: drawerList[index].trailingIcon,
+                    index: index);
               },
             ),
           ),
