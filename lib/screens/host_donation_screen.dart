@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '/screens/tabs_screen.dart';
 import '/models/donation.dart';
@@ -106,6 +107,7 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final donationContainer = Provider.of<DonationProvider>(context);
     return Form(
       key: _formKey,
       child: Padding(
@@ -131,17 +133,27 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
                 onPressed: () {
                   print(_formKey.currentState!.validate());
                   if (_formKey.currentState!.validate() == true) {
-                    hostDonation.add(
-                      Donation(
-                        amt: amtcontroller.text,
-                        name: namecontroller.text,
-                        age: agecontroller.text,
-                        mobile: mobilecontroller.text,
-                        bankName: banknamecontroller.text,
-                        accNum: accnumcontroller.text,
-                        panNum: pannumcontroller.text,
-                        ifsc: ifsccontroller.text,
-                      ),
+                    // donationContainer.hostDonation.add(
+                    //   Donation(
+                    //     amt: amtcontroller.text,
+                    //     name: namecontroller.text,
+                    //     age: agecontroller.text,
+                    //     mobile: mobilecontroller.text,
+                    //     bankName: banknamecontroller.text,
+                    //     accNum: accnumcontroller.text,
+                    //     panNum: pannumcontroller.text,
+                    //     ifsc: ifsccontroller.text,
+                    //   ),
+                    // );
+                    donationContainer.addDonation(
+                      amt: amtcontroller.text,
+                      name: namecontroller.text,
+                      age: agecontroller.text,
+                      mobile: mobilecontroller.text,
+                      bankName: banknamecontroller.text,
+                      accNum: accnumcontroller.text,
+                      panNum: pannumcontroller.text,
+                      ifsc: ifsccontroller.text,
                     );
                     showDialog(
                       context: context,

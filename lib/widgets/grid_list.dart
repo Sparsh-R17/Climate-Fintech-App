@@ -1,6 +1,8 @@
+import 'package:climate_fintech_app/widgets/view_donation.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/company_list.dart';
+import '../screens/view_donation_screen.dart';
 import '/config/causes_list.dart';
 
 class PageGrid extends StatefulWidget {
@@ -28,10 +30,14 @@ class _PageGridState extends State<PageGrid> {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed(
-                  CompanyList.routeName,
-                  arguments: causesList[index].id,
-                );
+                if (index == 5) {
+                  Navigator.of(context).pushNamed(ViewDonationScreen.routeName);
+                } else {
+                  Navigator.of(context).pushNamed(
+                    CompanyList.routeName,
+                    arguments: causesList[index].id,
+                  );
+                }
               },
               child: Container(
                 margin: const EdgeInsets.all(15),

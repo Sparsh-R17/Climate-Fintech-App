@@ -6,7 +6,10 @@ import 'package:provider/provider.dart';
 
 import 'providers/disaster_provider.dart';
 
+import '/models/donation.dart';
+import './screens/view_donation_screen.dart';
 import '/screens/company_info_screen.dart';
+
 import '/screens/payment.dart';
 import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
@@ -31,8 +34,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CurrentDisasterProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CurrentDisasterProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DonationProvider(),
+        ),
+      ],
       child: MaterialApp(
         title: 'CFA',
         theme: ThemeData(
@@ -41,11 +51,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const LoginPage(),
+          '/': (context) => const SignUp(),
+          ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
-          ForgetPassword.routeName:(context) => const ForgetPassword(),
-          
+          ForgetPassword.routeName: (context) => const ForgetPassword(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),

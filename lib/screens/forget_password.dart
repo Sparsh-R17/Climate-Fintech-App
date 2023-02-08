@@ -1,8 +1,8 @@
-import 'package:climate_fintech_app/config/colors.dart';
-import 'package:climate_fintech_app/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import '/config/colors.dart';
+import '/screens/login.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,20 +18,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xfffafafa),
       body: SafeArea(
-          child: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: SvgPicture.asset(
-              'assets/images/svg/sign_up_pattern.svg',
-              fit: BoxFit.cover,
+        child: Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: SvgPicture.asset(
+                'assets/images/svg/sign_up_pattern.svg',
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          SingleChildScrollView(
-            child: Container(
+            Container(
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.07,
                 right: MediaQuery.of(context).size.width * 0.07,
@@ -56,6 +56,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
                   const TextField(
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       hintText: 'Email',
                     ),
@@ -64,6 +65,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   const TextField(
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       hintText: 'New Password',
                     ),
@@ -72,6 +74,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   const TextField(
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       hintText: 'Confirm Password',
                     ),
@@ -97,9 +100,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 ],
               ),
             ),
-          )
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }
