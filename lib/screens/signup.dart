@@ -1,3 +1,4 @@
+import 'package:climate_fintech_app/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                       hintText: 'Name',
                     ),
@@ -58,7 +59,7 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                       hintText: 'Email',
                     ),
@@ -66,7 +67,7 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                       hintText: 'Password',
                     ),
@@ -78,9 +79,10 @@ class _SignUpState extends State<SignUp> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Sign Up',
+                        'Confirm \nAccount Creation',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
+                          fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
                       ),
@@ -89,7 +91,8 @@ class _SignUpState extends State<SignUp> {
                         backgroundColor: Colors.black,
                         child: IconButton(
                           onPressed: (() {
-                            print('Signed Up');
+                            print('Account create confirmation');
+                            Navigator.pushNamed(context, LoginPage.routeName);
                           }),
                           icon: const Icon(Icons.arrow_forward),
                           color: Colors.white,
@@ -103,6 +106,7 @@ class _SignUpState extends State<SignUp> {
                   TextButton(
                     onPressed: (() {
                       print('Already have an account');
+                      Navigator.pushNamed(context, LoginPage.routeName);
                     }),
                     child: Text(
                       'Already Have an Account?',

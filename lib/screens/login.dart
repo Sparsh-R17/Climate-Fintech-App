@@ -1,3 +1,5 @@
+import 'package:climate_fintech_app/screens/forget_password.dart';
+import 'package:climate_fintech_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xfffafafa),
       body: Stack(
         children: <Widget>[
@@ -67,9 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.025,
                 ),
-                Padding(
+                Container(
                   padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).size.height * 0.1,
+                    bottom: MediaQuery.of(context).size.height * 0.05,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,6 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                         child: IconButton(
                           onPressed: (() {
                             print('Signed In');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: ((context) => TabsScreen())));
                           }),
                           icon: const Icon(Icons.arrow_forward),
                           color: Colors.white,
@@ -102,38 +107,43 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).size.height * 0.015,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      TextButton(
-                        onPressed: (() {
-                          print('SignUp');
-                          Navigator.pushNamed(context, SignUp.routeName);
-                        }),
-                        child: Text(
-                          'Sign Up',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black,
-                            decoration: TextDecoration.underline,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
-                      TextButton(
+                  child: Container(
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        TextButton(
                           onPressed: (() {
-                            print(
-                              'Forget Password',
-                            );
+                            print('SignUp');
+                            Navigator.pushNamed(context, SignUp.routeName);
                           }),
                           child: Text(
-                            'Forget Password',
+                            'Sign Up',
                             style: GoogleFonts.poppins(
                               color: Colors.black,
                               decoration: TextDecoration.underline,
                               fontSize: 15,
                             ),
-                          ))
-                    ],
+                          ),
+                        ),
+                        TextButton(
+                            onPressed: (() {
+                              print(
+                                'Forget Password',
+                              );
+                              Navigator.pushNamed(
+                                  context, ForgetPassword.routeName);
+                            }),
+                            child: Text(
+                              'Forget Password',
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                decoration: TextDecoration.underline,
+                                fontSize: 15,
+                              ),
+                            ))
+                      ],
+                    ),
                   ),
                 )
               ],

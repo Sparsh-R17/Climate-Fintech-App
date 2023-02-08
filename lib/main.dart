@@ -1,3 +1,4 @@
+import 'package:climate_fintech_app/screens/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,9 +41,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const TabsScreen(),
+          '/': (context) => const LoginPage(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
+          ForgetPassword.routeName:(context) => const ForgetPassword(),
+          
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),
