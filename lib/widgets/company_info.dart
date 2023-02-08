@@ -2,15 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-import '../config/colors.dart';
-
-class CompanyInfo extends StatelessWidget {
+class CompanyInfo extends StatefulWidget {
   final Color buttonColor;
   final Color pageColor;
   final List<String> phoneNumbers;
   final List<String> address;
   final String email;
   final String link;
+  final bool _clickCounter;
 
   const CompanyInfo({
     Key? key,
@@ -24,14 +23,18 @@ class CompanyInfo extends StatelessWidget {
   })  : _clickCounter = clickCounter,
         super(key: key);
 
-  final bool _clickCounter;
+  @override
+  State<CompanyInfo> createState() => _CompanyInfoState();
+}
 
+class _CompanyInfoState extends State<CompanyInfo> {
+  bool showMobile = false;
   @override
   Widget build(BuildContext context) {
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
     return Visibility(
-      visible: !_clickCounter,
+      visible: !widget._clickCounter,
       child: Column(
         children: [
           Row(
@@ -42,119 +45,9 @@ class CompanyInfo extends StatelessWidget {
                 height: pageHeight * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: pageColor,
+                  color: widget.pageColor,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                        left: pageWidth * 0.03,
-                        top: pageHeight * 0.005,
-                      ),
-                      // color: Colors.teal,
-                      width: pageWidth * 0.18,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.phone,
-                            size: 20,
-                            color: Color.fromARGB(255, 73, 72, 72),
-                          ),
-                          FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(
-                              'Phone',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 73, 72, 72),
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(
-                          left: pageWidth * 0.06,
-                          top: pageHeight * 0.003,
-                        ),
-                        // height: pageHeight * 0.07,
-                        width: pageWidth * 0.45,
-                        // color: Colors.red,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: phoneNumbers.map(((e) {
-                            return FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
-                                e,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Color.fromARGB(255, 73, 72, 72),
-                                ),
-                              ),
-                            );
-                          })).toList(),
-                        )),
-                    Container(
-                      margin: EdgeInsets.only(
-                        left: pageWidth * 0.03,
-                        top: pageHeight * 0.005,
-                      ),
-                      // color: Colors.teal,
-                      width: pageWidth * 0.2,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.location_on_outlined,
-                            size: 20,
-                            color: Color.fromARGB(255, 73, 72, 72),
-                          ),
-                          FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(
-                              'Address',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 73, 72, 72),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        left: pageWidth * 0.05,
-                        top: pageHeight * 0.003,
-                      ),
-                      height: pageHeight * 0.08,
-                      width: pageWidth * 0.45,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: address.map(((e) {
-                          return FittedBox(
-                            fit: BoxFit.fitHeight,
-                            child: Text(
-                              e,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Color.fromARGB(255, 73, 72, 72),
-                              ),
-                            ),
-                          );
-                        })).toList(),
-                      ),
-                    ),
-                  ],
-                ),
+                child: showMobile ? viewContact() : viewAddress(),
               ),
               SizedBox(
                 width: pageWidth * 0.03,
@@ -166,7 +59,7 @@ class CompanyInfo extends StatelessWidget {
                     height: pageHeight * 0.095,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: pageColor,
+                      color: widget.pageColor,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -201,7 +94,7 @@ class CompanyInfo extends StatelessWidget {
                           child: FittedBox(
                             fit: BoxFit.fitHeight,
                             child: Text(
-                              email,
+                              widget.email,
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 73, 72, 72)),
                             ),
@@ -220,7 +113,7 @@ class CompanyInfo extends StatelessWidget {
                       height: pageHeight * 0.095,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: pageColor,
+                        color: widget.pageColor,
                       ),
                       child: Row(
                         children: [
@@ -246,7 +139,7 @@ class CompanyInfo extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
           Container(
@@ -256,8 +149,8 @@ class CompanyInfo extends StatelessWidget {
             height: pageHeight * 0.05,
             child: MaterialButton(
               onPressed: () {},
-              color: buttonColor,
-              textColor: Colors.white,
+              color: widget.buttonColor,
+              textColor: const Color.fromARGB(255, 73, 72, 72),
               child: const Text(
                 'DONATE NOW',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -266,6 +159,158 @@ class CompanyInfo extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget viewAddress() {
+    final pageHeight = MediaQuery.of(context).size.height;
+    final pageWidth = MediaQuery.of(context).size.width;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+            left: pageWidth * 0.02,
+            top: pageHeight * 0.01,
+          ),
+          child: Row(
+            children: const [
+              Icon(
+                Icons.location_on_outlined,
+                size: 23,
+                color: Color.fromARGB(255, 73, 72, 72),
+              ),
+              Text(
+                ' Address',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 73, 72, 72),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: pageWidth * 0.05,
+            top: pageHeight * 0.006,
+            right: pageWidth * 0.035,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widget.address.map((e) {
+              return Text(
+                e,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Color.fromARGB(255, 73, 72, 72),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              showMobile = !showMobile;
+            });
+          },
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: pageWidth * 0.2,
+              bottom: pageHeight * 0.01,
+            ),
+            child: const Text(
+              'Tap to view Contact',
+              style: TextStyle(
+                decoration: TextDecoration.underline,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget viewContact() {
+    final pageHeight = MediaQuery.of(context).size.height;
+    final pageWidth = MediaQuery.of(context).size.width;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+            left: pageWidth * 0.02,
+            top: pageHeight * 0.01,
+          ),
+          child: Row(
+            children: const [
+              Icon(
+                Icons.phone,
+                size: 23,
+                color: Color.fromARGB(255, 73, 72, 72),
+              ),
+              Text(
+                ' Phone',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 73, 72, 72),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: pageWidth * 0.035,
+            top: pageHeight * 0.012,
+            right: pageWidth * 0.035,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widget.phoneNumbers.map((e) {
+              return Padding(
+                padding: EdgeInsets.only(top: pageHeight * 0.005),
+                child: Text(
+                  e,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color.fromARGB(255, 73, 72, 72),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              showMobile = !showMobile;
+            });
+          },
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: pageHeight * 0.03,
+              left: pageWidth * 0.19,
+              bottom: pageHeight * 0.01,
+            ),
+            child: const Text(
+              'Tap to view Address',
+              style: TextStyle(
+                decoration: TextDecoration.underline,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
