@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CurrentDisaster {
+  final String id;
   final String disasterPic;
   final String iconLocation;
   final String disasterName;
@@ -12,6 +13,7 @@ class CurrentDisaster {
   final Color iconColor;
 
   CurrentDisaster({
+    this.id = '1',
     required this.disasterPic,
     required this.iconLocation,
     required this.disasterName,

@@ -15,6 +15,7 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedPageIndex = 0;
+  var _isLoading = false;
   List<Map<String, dynamic>>? _pages;
 
   @override
@@ -29,6 +30,17 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Donations',
       },
     ];
+    setState(() {
+      _isLoading = true;
+    });
+    Provider.of<CurrentDisasterProvider>(context, listen: false)
+        .fetchAndSetData()
+        .then((_) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+
     super.initState();
   }
 
@@ -36,52 +48,60 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
     final disaster = disasterContainer.disasterList;
+    print('HULALALA');
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: disaster[disasterContainer.cardIndex].cardColor,
-        elevation: 0,
-        title: const Padding(
-          padding: EdgeInsets.only(bottom: 4),
-          child: Text(
-            '@username',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        leadingWidth: 30,
-      ),
-      body: _pages![_selectedPageIndex]['page'],
-      drawer: const CustomDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        enableFeedback: true,
-        selectedItemColor: disaster[disasterContainer.cardIndex].iconColor,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-        backgroundColor: Colors.transparent,
-        currentIndex: _selectedPageIndex,
-        type: BottomNavigationBarType.shifting,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on),
-            label: 'Donations',
-          ),
-        ],
-        onTap: (value) {
-          //For Matching the carousel index with the bottom navbar
-          setState(() {
-            if (value == 0 && _selectedPageIndex == 1) {
-              disasterContainer.changeCarousel(value);
-            }
-            _selectedPageIndex = value;
-          });
-        },
-      ),
-    );
+    return _isLoading
+        ? const Scaffold(
+            body: SafeArea(
+              child: Center(child: CircularProgressIndicator(),),
+            ),
+          )
+        : Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.black),
+              backgroundColor: disaster[disasterContainer.cardIndex].cardColor,
+              elevation: 0,
+              title: const Padding(
+                padding: EdgeInsets.only(bottom: 4),
+                child: Text(
+                  '@username',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              leadingWidth: 30,
+            ),
+            body: _pages![_selectedPageIndex]['page'],
+            drawer: const CustomDrawer(),
+            bottomNavigationBar: BottomNavigationBar(
+              enableFeedback: true,
+              selectedItemColor:
+                  disaster[disasterContainer.cardIndex].iconColor,
+              unselectedItemColor: Colors.grey,
+              showUnselectedLabels: true,
+              backgroundColor: Colors.transparent,
+              currentIndex: _selectedPageIndex,
+              type: BottomNavigationBarType.shifting,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.monetization_on),
+                  label: 'Donations',
+                ),
+              ],
+              onTap: (value) {
+                //For Matching the carousel index with the bottom navbar
+                setState(() {
+                  if (value == 0 && _selectedPageIndex == 1) {
+                    disasterContainer.changeCarousel(value);
+                  }
+                  _selectedPageIndex = value;
+                });
+              },
+            ),
+          );
   }
 }

@@ -15,10 +15,13 @@ class DisasterCarousel extends StatefulWidget {
 }
 
 class _DisasterCarouselState extends State<DisasterCarousel> {
+ 
+
   @override
   Widget build(BuildContext context) {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
     final disasterCard = disasterContainer.disasterList;
+
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.25,
       child: CarouselSlider.builder(

@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const SignUp(),
+          '/': (context) => const TabsScreen(),
           ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
