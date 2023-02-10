@@ -37,7 +37,7 @@ class CarouselTile extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.76,
-                height: MediaQuery.of(context).size.height * 0.185,
+                height: MediaQuery.of(context).size.height * 0.171,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),

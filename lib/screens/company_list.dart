@@ -176,7 +176,7 @@ class _CompanyListState extends State<CompanyList> {
           ),
           //Expand Icon
           Padding(
-              padding: const EdgeInsets.fromLTRB(20, 24, 25, 23),
+              padding: const EdgeInsets.fromLTRB(20, 24, 0, 23),
               child: InkWell(
                 onTap: () {
                   setState(() {

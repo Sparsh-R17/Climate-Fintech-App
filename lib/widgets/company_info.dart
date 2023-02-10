@@ -65,14 +65,14 @@ class _CompanyInfoState extends State<CompanyInfo> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: pageHeight * 0.005,
+                          height: pageHeight * 0.004,
                         ),
                         const Icon(
                           Icons.email_outlined,
                           color: Color.fromARGB(255, 73, 72, 72),
                         ),
                         SizedBox(
-                          height: pageHeight * 0.005,
+                          height: pageHeight * 0.002,
                         ),
                         SizedBox(
                           width: pageWidth * 0.24,
@@ -87,10 +87,10 @@ class _CompanyInfoState extends State<CompanyInfo> {
                           ),
                         ),
                         SizedBox(
-                          height: pageHeight * 0.003,
+                          height: pageHeight * 0.001,
                         ),
                         SizedBox(
-                          width: pageWidth * 0.25,
+                          width: pageWidth * 0.20,
                           child: FittedBox(
                             fit: BoxFit.fitHeight,
                             child: Text(
@@ -146,7 +146,7 @@ class _CompanyInfoState extends State<CompanyInfo> {
             margin: EdgeInsets.only(
                 top: pageHeight * 0.02, bottom: pageHeight * 0.02),
             width: pageWidth * 0.82,
-            height: pageHeight * 0.05,
+            height: pageHeight * 0.04,
             child: MaterialButton(
               onPressed: () {},
               color: widget.buttonColor,
@@ -220,11 +220,11 @@ class _CompanyInfoState extends State<CompanyInfo> {
           },
           child: Padding(
             padding: EdgeInsets.only(
-              left: pageWidth * 0.2,
+              left: pageWidth * 0.13,
               bottom: pageHeight * 0.01,
             ),
             child: const Text(
-              'Tap to view Contact',
+              'Tap to view contact',
               style: TextStyle(
                 decoration: TextDecoration.underline,
                 fontSize: 12,
@@ -298,11 +298,11 @@ class _CompanyInfoState extends State<CompanyInfo> {
           child: Padding(
             padding: EdgeInsets.only(
               top: pageHeight * 0.03,
-              left: pageWidth * 0.19,
+              left: pageWidth * 0.13,
               bottom: pageHeight * 0.01,
             ),
             child: const Text(
-              'Tap to view Address',
+              'Tap to view address',
               style: TextStyle(
                 decoration: TextDecoration.underline,
                 fontSize: 12,

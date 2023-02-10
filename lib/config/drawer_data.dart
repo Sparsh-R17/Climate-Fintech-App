@@ -13,7 +13,7 @@ List<DrawerList> drawerList = [
   ),
   DrawerList(
     boxColor: AppColor.green,
-    listName: 'Your Social Networks',
+    listName: 'Social Networks',
     icon: 'assets/images/png/socialmedia_icon.png',
     listTag: '',
     trailingIcon: Icons.navigate_next,

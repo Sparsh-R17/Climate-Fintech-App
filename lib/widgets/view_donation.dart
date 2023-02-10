@@ -42,7 +42,7 @@ class _ViewDonationState extends State<ViewDonation> {
                 displayText = !displayText;
               });
             },
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 300),
             decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
@@ -52,7 +52,7 @@ class _ViewDonationState extends State<ViewDonation> {
             ),
             width: MediaQuery.of(context).size.width * 0.9,
             height: expandMore
-                ? MediaQuery.of(context).size.height * 0.2
+                ? MediaQuery.of(context).size.height * 0.25
                 : MediaQuery.of(context).size.height * 0.09,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -116,8 +116,8 @@ class _ViewDonationState extends State<ViewDonation> {
                   visible: expandMore && displayText,
                   child: Padding(
                     padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.005,
-                      left: MediaQuery.of(context).size.width * 0.05,
+                      top: MediaQuery.of(context).size.height * 0.003,
+                      left: MediaQuery.of(context).size.width * 0.03,
                     ),
                     child: const Text('Reason will be listed here'),
                   ),
@@ -126,18 +126,34 @@ class _ViewDonationState extends State<ViewDonation> {
                   Padding(
                     padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.007,
-                      left: MediaQuery.of(context).size.width * 0.05,
+                      left: MediaQuery.of(context).size.width * 0.03,
                     ),
                     child: const Text('Numbers of Donors : ___'),
                   ),
+                if (displayText && expandMore) const Spacer(),
                 if (displayText && expandMore)
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.75),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text('PAY'),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        color: Colors.red,
+                        width: MediaQuery.of(context).size.width * 0.16,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        margin: EdgeInsets.only(
+                          right: MediaQuery.of(context).size.width * 0.05,
+                          bottom: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              'PAY',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   )
               ],
             ),

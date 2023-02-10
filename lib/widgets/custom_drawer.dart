@@ -54,22 +54,34 @@ class CustomDrawer extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Welcome Back,',
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.28,
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(
+                                  'Welcome Back,',
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 14,
+                                  ),
+                                ),
                               ),
                             ),
                             SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.002,
                             ),
-                            Text(
-                              'UserName',
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.30,
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(
+                                  'UserName',
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.bold,
+                                    // fontSize: 16,
+                                  ),
+                                ),
                               ),
                             ),
                           ],
