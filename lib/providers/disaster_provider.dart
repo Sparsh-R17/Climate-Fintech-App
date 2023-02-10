@@ -98,7 +98,7 @@ class CurrentDisasterProvider with ChangeNotifier {
           ),
         );
       });
-      print('Here I come');
+     
       _disasterList = disasterLoaded;
       notifyListeners();
     } catch (error) {

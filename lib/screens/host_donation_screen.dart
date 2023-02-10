@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +21,7 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
   final TextEditingController pannumcontroller = TextEditingController();
   final TextEditingController ifsccontroller = TextEditingController();
   final TextEditingController amtcontroller = TextEditingController();
+
 
   Padding formField(
     BuildContext context,
@@ -105,6 +104,8 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
     );
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     final donationContainer = Provider.of<DonationProvider>(context);
@@ -133,27 +134,17 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
                 onPressed: () {
                   print(_formKey.currentState!.validate());
                   if (_formKey.currentState!.validate() == true) {
-                    // donationContainer.hostDonation.add(
-                    //   Donation(
-                    //     amt: amtcontroller.text,
-                    //     name: namecontroller.text,
-                    //     age: agecontroller.text,
-                    //     mobile: mobilecontroller.text,
-                    //     bankName: banknamecontroller.text,
-                    //     accNum: accnumcontroller.text,
-                    //     panNum: pannumcontroller.text,
-                    //     ifsc: ifsccontroller.text,
-                    //   ),
-                    // );
                     donationContainer.addDonation(
-                      amt: amtcontroller.text,
-                      name: namecontroller.text,
-                      age: agecontroller.text,
-                      mobile: mobilecontroller.text,
-                      bankName: banknamecontroller.text,
-                      accNum: accnumcontroller.text,
-                      panNum: pannumcontroller.text,
-                      ifsc: ifsccontroller.text,
+                      Donation(
+                        amt: amtcontroller.text,
+                        name: namecontroller.text,
+                        age: agecontroller.text,
+                        mobile: mobilecontroller.text,
+                        bankName: banknamecontroller.text,
+                        accNum: accnumcontroller.text,
+                        panNum: pannumcontroller.text,
+                        ifsc: ifsccontroller.text,
+                      ),
                     );
                     showDialog(
                       context: context,

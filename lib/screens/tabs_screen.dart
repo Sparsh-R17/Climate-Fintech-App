@@ -48,12 +48,13 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
     final disaster = disasterContainer.disasterList;
-    print('HULALALA');
 
     return _isLoading
         ? const Scaffold(
             body: SafeArea(
-              child: Center(child: CircularProgressIndicator(),),
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           )
         : Scaffold(

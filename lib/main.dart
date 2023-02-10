@@ -1,4 +1,3 @@
-import 'package:climate_fintech_app/screens/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +9,7 @@ import '/models/donation.dart';
 import './screens/view_donation_screen.dart';
 import '/screens/company_info_screen.dart';
 
+import '/screens/forget_password.dart';
 import '/screens/payment.dart';
 import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
