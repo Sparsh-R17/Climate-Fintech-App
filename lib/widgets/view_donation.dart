@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '/config/colors.dart';
+import '../screens/payment.dart';
 
 class ViewDonation extends StatefulWidget {
   final String name;
@@ -18,7 +18,7 @@ class ViewDonation extends StatefulWidget {
 
 class _ViewDonationState extends State<ViewDonation> {
   bool expandMore = false;
-  bool displayText = false;
+  // bool displayText = false;
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
@@ -36,13 +36,7 @@ class _ViewDonationState extends State<ViewDonation> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          child: AnimatedContainer(
-            onEnd: () {
-              setState(() {
-                displayText = !displayText;
-              });
-            },
-            duration: const Duration(milliseconds: 300),
+          child: Container(
             decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
@@ -113,7 +107,7 @@ class _ViewDonationState extends State<ViewDonation> {
                   ],
                 ),
                 Visibility(
-                  visible: expandMore && displayText,
+                  visible: expandMore,
                   child: Padding(
                     padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.003,
@@ -122,7 +116,7 @@ class _ViewDonationState extends State<ViewDonation> {
                     child: const Text('Reason will be listed here'),
                   ),
                 ),
-                if (displayText && expandMore)
+                if (expandMore)
                   Padding(
                     padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.007,
@@ -130,13 +124,12 @@ class _ViewDonationState extends State<ViewDonation> {
                     ),
                     child: const Text('Numbers of Donors : ___'),
                   ),
-                if (displayText && expandMore) const Spacer(),
-                if (displayText && expandMore)
+                if (expandMore) const Spacer(),
+                if (expandMore)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        color: Colors.red,
                         width: MediaQuery.of(context).size.width * 0.16,
                         height: MediaQuery.of(context).size.height * 0.04,
                         margin: EdgeInsets.only(
@@ -144,7 +137,10 @@ class _ViewDonationState extends State<ViewDonation> {
                           bottom: MediaQuery.of(context).size.height * 0.02,
                         ),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamed(PaymentPage.routeName);
+                          },
                           child: const FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(

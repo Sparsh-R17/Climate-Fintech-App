@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           ForgetPassword.routeName: (context) => const ForgetPassword(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
-          PaymentPage.routeName: (context) => const PaymentPage(),
+          PaymentPage.routeName: (context) => PaymentPage(),
         },
       ),
     );

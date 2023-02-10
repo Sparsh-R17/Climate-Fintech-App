@@ -13,5 +13,5 @@ class DrawerList {
     required this.icon,
     required this.listTag,
     required this.trailingIcon,
-  });
+  }); 
 }

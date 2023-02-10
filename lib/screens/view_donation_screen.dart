@@ -33,36 +33,51 @@ class _ViewDonationScreenState extends State<ViewDonationScreen> {
     super.initState();
   }
 
+  Future<void> _refreshPage(BuildContext context) async {
+    Provider.of<DonationProvider>(context, listen: false).fetchDonation();
+  }
+
   @override
   Widget build(BuildContext context) {
     final donationContainer = Provider.of<DonationProvider>(context);
-    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.iconBrown,
         title: const Text('Host Donation'),
       ),
-      body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
-              itemCount: donationContainer.hostDonation.length,
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.02,
+      body: RefreshIndicator(
+        onRefresh: () => _refreshPage(context),
+        child: _isLoading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : RefreshIndicator(
+                onRefresh: () => _refreshPage(context),
+                child: donationContainer.hostDonation.isEmpty
+                    ? const Center(
+                        child: Text('No donations are hosted !'),
+                      )
+                    : ListView.builder(
+                        itemCount: donationContainer.hostDonation.length,
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(
+                              vertical:
+                                  MediaQuery.of(context).size.height * 0.01,
+                            ),
+                            child: ViewDonation(
+                              amt: donationContainer.hostDonation[index].amt,
+                              name: donationContainer.hostDonation[index].name,
+                            ),
+                          );
+                        },
+                      ),
               ),
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  child: ViewDonation(
-                    amt: donationContainer.hostDonation[index].amt,
-                    name: donationContainer.hostDonation[index].name,
-                  ),
-                );
-              },
-            ),
+      ),
     );
   }
 }
