@@ -1,11 +1,38 @@
+import 'package:climate_fintech_app/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import './drawer_list_tile.dart';
 import '../config/drawer_data.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+User loggedin = loggedin;
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  final _auth = FirebaseAuth.instance;
+
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = _auth.currentUser;
+      if (user != null) {
+        loggedin = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +103,10 @@ class CustomDrawer extends StatelessWidget {
                               child: FittedBox(
                                 fit: BoxFit.fill,
                                 child: Text(
-                                  'UserName',
+                                  _auth.currentUser!.displayName.toString(),
                                   style: GoogleFonts.inter(
                                     fontWeight: FontWeight.bold,
-                                    // fontSize: 16,
+                                    fontSize: 7,
                                   ),
                                 ),
                               ),
@@ -108,6 +135,26 @@ class CustomDrawer extends StatelessWidget {
               },
             ),
           ),
+          TextButton.icon(
+            onPressed: (() {
+              print('Pressed Logout');
+              _auth.signOut();
+              Navigator.pushReplacementNamed(context, LoginPage.routeName);
+            }),
+            icon: const Icon(
+              Icons.logout_outlined,
+              color: Colors.black,
+              size: 24,
+            ),
+            label: const Text(
+              'Logout',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '/config/colors.dart';
@@ -14,94 +15,92 @@ class ForgetPassword extends StatefulWidget {
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
 
+final _auth = FirebaseAuth.instance;
+
 class _ForgetPasswordState extends State<ForgetPassword> {
+  final _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xfffafafa),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: SvgPicture.asset(
-                'assets/images/svg/sign_up_pattern.svg',
-                fit: BoxFit.cover,
-              ),
+      body: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: SvgPicture.asset(
+              'assets/images/svg/sign_up_pattern.svg',
+              fit: BoxFit.cover,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.07,
-                right: MediaQuery.of(context).size.width * 0.07,
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.18,
-                      right: MediaQuery.of(context).size.width * 0.2,
+          ),
+          Container(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.07,
+              right: MediaQuery.of(context).size.width * 0.07,
+            ),
+            child: Column(
+              // alignment: Alignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.30,
+                    right: MediaQuery.of(context).size.width * 0.2,
+                  ),
+                  child: Text(
+                    'Forget Password?',
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
                     ),
-                    child: Text(
-                      'Forget Password?',
-                      style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontSize: 30,
+                  ),
+                ),
+                Spacer(),
+
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                  ),
+                  controller: _emailController,
+                ),
+                //
+                Spacer(),
+                Container(
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.2),
+                  child: ElevatedButton(
+                    onPressed: (() {
+                      print('Forget Password button clicked');
+                      try {
+                        _auth
+                            .sendPasswordResetEmail(
+                                email: _emailController.text.trim())
+                            .then((value) => Navigator.of(context).pop());
+                      } catch (e) {
+                        print(e);
+                      }
+                    }),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.iconGreen,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 15)),
+                    child: const Text(
+                      'Send RESET Email',
+                      style: TextStyle(
+                        fontSize: 20,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
-                  ),
-                  const TextField(
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
-                  ),
-                  const TextField(
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                      hintText: 'New Password',
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
-                  ),
-                  const TextField(
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                      hintText: 'Confirm Password',
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                  ),
-                  ElevatedButton(
-                      onPressed: (() {
-                        print('SUBMIT');
-                        Navigator.pushNamed(context, LoginPage.routeName);
-                      }),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.iconGreen,
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15)),
-                      child: const Text(
-                        'Submit',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ))
-                ],
-              ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

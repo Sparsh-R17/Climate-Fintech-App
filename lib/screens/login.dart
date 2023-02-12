@@ -1,5 +1,6 @@
 import 'package:climate_fintech_app/screens/forget_password.dart';
 import 'package:climate_fintech_app/screens/tabs_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,22 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+final _auth = FirebaseAuth.instance;
+
 class _LoginPageState extends State<LoginPage> {
+  String email = '';
+  String password = '';
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +70,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const Spacer(),
-                const TextField(
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  controller: _emailController,
+                  // onChanged: (value) {
+                  //   email = value.trim();
+                  // },
                   decoration: InputDecoration(
                     hintText: 'Email',
                   ),
@@ -62,7 +83,12 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                const TextField(
+                TextFormField(
+                  obscureText: true,
+                  controller: _passwordController,
+                  // onChanged: (value) {
+                  //   password = value;
+                  // },
                   decoration: InputDecoration(
                     hintText: 'Password',
                   ),
@@ -88,10 +114,24 @@ class _LoginPageState extends State<LoginPage> {
                         radius: MediaQuery.of(context).size.height * 0.04,
                         backgroundColor: Colors.black,
                         child: IconButton(
-                          onPressed: (() {
+                          onPressed: (() async {
                             print('Signed In');
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: ((context) => TabsScreen())));
+                            try {
+                              final user =
+                                  await _auth.signInWithEmailAndPassword(
+                                      email: _emailController.text.trim(), password: _passwordController.text.trim(),);
+                              //print('print1');
+                              if (user != null) {
+                                //print('print');
+                                Navigator.pushNamed(
+                                    context, TabsScreen.routeName);
+                              }
+                            } catch (e) {
+                              print(e);
+                            }
+
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //     builder: ((context) => TabsScreen())));
                           }),
                           icon: const Icon(Icons.arrow_forward),
                           color: Colors.white,
@@ -108,7 +148,6 @@ class _LoginPageState extends State<LoginPage> {
                     bottom: MediaQuery.of(context).size.height * 0.015,
                   ),
                   child: Container(
-                    color: Colors.amber,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[

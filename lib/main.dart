@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,8 +17,9 @@ import '/screens/tabs_screen.dart';
 import './screens/login.dart';
 import './screens/signup.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
@@ -51,11 +53,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const TabsScreen(),
+          '/': (context) => const LoginPage(),
           ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
           ForgetPassword.routeName: (context) => const ForgetPassword(),
+          TabsScreen.routeName:(context) => const TabsScreen(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => PaymentPage(),

@@ -7,6 +7,7 @@ import 'home_page.dart';
 import '../widgets/custom_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
+  static const routeName = '/TabsScreen';
   const TabsScreen({super.key});
 
   @override
