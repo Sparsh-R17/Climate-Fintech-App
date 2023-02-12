@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5257029120",
+    "firebase_url": "https://cfa-project-2642a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cfa-project-2642a",
+    "storage_bucket": "cfa-project-2642a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5257029120:android:c3642fbd7850d6d2f29ae5",
+        "android_client_info": {
+          "package_name": "com.example.climate_fintech_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5257029120-60l3vvv6bisosd591ln9us97ugia1jp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3yt2dK4JQ-DMn3m9p457qbZubIQpvpAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5257029120-60l3vvv6bisosd591ln9us97ugia1jp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
