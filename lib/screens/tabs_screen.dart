@@ -45,6 +45,11 @@ class _TabsScreenState extends State<TabsScreen> {
     super.initState();
   }
 
+  Future<void> _refreshPage(BuildContext context) async {
+    Provider.of<CurrentDisasterProvider>(context, listen: false)
+        .fetchAndSetData();
+  }
+
   @override
   Widget build(BuildContext context) {
     final disasterContainer = Provider.of<CurrentDisasterProvider>(context);
@@ -73,7 +78,17 @@ class _TabsScreenState extends State<TabsScreen> {
               ),
               leadingWidth: 30,
             ),
-            body: _pages![_selectedPageIndex]['page'],
+            body: RefreshIndicator(
+              child: _pages![_selectedPageIndex]['page'],
+              onRefresh: () => _refreshPage(context),
+            ),
+            floatingActionButton: FloatingActionButton(
+                backgroundColor: Colors.red,
+                child: const Icon(Icons.add),
+                onPressed: () {
+                  Provider.of<CurrentDisasterProvider>(context, listen: false)
+                      .addDisaster();
+                }),
             drawer: const CustomDrawer(),
             bottomNavigationBar: BottomNavigationBar(
               enableFeedback: true,
