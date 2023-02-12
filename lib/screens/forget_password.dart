@@ -41,7 +41,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               right: MediaQuery.of(context).size.width * 0.07,
             ),
             child: Column(
-              // alignment: Alignment.center,
               children: [
                 Container(
                   alignment: Alignment.topLeft,
@@ -83,6 +82,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                             .then((value) => Navigator.of(context).pop());
                       } catch (e) {
                         print(e);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              e.toString(),
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        );
                       }
                     }),
                     style: ElevatedButton.styleFrom(

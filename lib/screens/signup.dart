@@ -15,9 +15,6 @@ class SignUp extends StatefulWidget {
 final _auth = FirebaseAuth.instance;
 
 class _SignUpState extends State<SignUp> {
-  String name = '';
-  String email = '';
-  String password = '';
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _nameController = TextEditingController();
@@ -76,10 +73,6 @@ class _SignUpState extends State<SignUp> {
                   hintText: 'Name',
                 ),
                 controller: _nameController,
-                onChanged: (value) {
-                  setState(() {});
-                  name = value;
-                },
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
@@ -92,26 +85,17 @@ class _SignUpState extends State<SignUp> {
                   hintText: 'Email',
                 ),
                 controller: _emailController,
-                onChanged: (value) {
-                  setState(() {});
-                  email = value;
-                },
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               TextFormField(
-                //textInputAction: TextInputAction.next,
                 obscureText: true,
                 textAlign: TextAlign.left,
                 decoration: InputDecoration(
                   hintText: 'Password',
                 ),
                 controller: _passwordController,
-                onChanged: (value) {
-                  setState(() {});
-                  password = value;
-                },
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
@@ -132,12 +116,11 @@ class _SignUpState extends State<SignUp> {
                       try {
                         final newUser =
                             await _auth.createUserWithEmailAndPassword(
-                          // email: email.trim(),
-                          // password: password,
                           email: _emailController.text.trim(),
                           password: _passwordController.text,
                         );
-                        _auth.currentUser!.updateDisplayName(name);
+                        _auth.currentUser!
+                            .updateDisplayName(_nameController.text.trim());
                         if (newUser != null) {
                           Navigator.pushNamed(context, LoginPage.routeName);
                         } else {
@@ -145,25 +128,24 @@ class _SignUpState extends State<SignUp> {
                         }
                       } catch (e) {
                         print(e);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              e.toString(),
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        );
                       }
                       setState(() {});
                     }),
                     child: CircleAvatar(
                       radius: MediaQuery.of(context).size.height * 0.04,
                       backgroundColor: Colors.black,
-                      child:
-                          // IconButton(
-                          // onPressed: (() {
-                          //   print('Account create confirmation');
-                          //   Navigator.pushNamed(context, LoginPage.routeName);
-                          // }),
-                          // icon: const
-                          Icon(
+                      child: Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
                       ),
-                      // color: Colors.white,
-                      // ),
                     ),
                   )
                 ],

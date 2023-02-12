@@ -18,8 +18,6 @@ class LoginPage extends StatefulWidget {
 final _auth = FirebaseAuth.instance;
 
 class _LoginPageState extends State<LoginPage> {
-  String email = '';
-  String password = '';
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -73,9 +71,6 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   controller: _emailController,
-                  // onChanged: (value) {
-                  //   email = value.trim();
-                  // },
                   decoration: InputDecoration(
                     hintText: 'Email',
                   ),
@@ -86,9 +81,6 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   obscureText: true,
                   controller: _passwordController,
-                  // onChanged: (value) {
-                  //   password = value;
-                  // },
                   decoration: InputDecoration(
                     hintText: 'Password',
                   ),
@@ -119,7 +111,9 @@ class _LoginPageState extends State<LoginPage> {
                             try {
                               final user =
                                   await _auth.signInWithEmailAndPassword(
-                                      email: _emailController.text.trim(), password: _passwordController.text.trim(),);
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text.trim(),
+                              );
                               //print('print1');
                               if (user != null) {
                                 //print('print');
@@ -128,10 +122,16 @@ class _LoginPageState extends State<LoginPage> {
                               }
                             } catch (e) {
                               print(e);
+                              
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    e.toString(),
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                ),
+                              );
                             }
-
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: ((context) => TabsScreen())));
                           }),
                           icon: const Icon(Icons.arrow_forward),
                           color: Colors.white,
