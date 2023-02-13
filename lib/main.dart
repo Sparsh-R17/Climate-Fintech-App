@@ -1,4 +1,3 @@
-import 'package:climate_fintech_app/screens/profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +11,8 @@ import '/models/donation.dart';
 import './screens/view_donation_screen.dart';
 import '/screens/company_info_screen.dart';
 
+import '/screens/profile_screen.dart';
+import '/screens/payment_card_screen.dart';
 import '/screens/forget_password.dart';
 import '/screens/payment.dart';
 import 'screens/company_list.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const ProfileScreen(),
+          '/': (context) => const PaymentCardScreen(),
           ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),

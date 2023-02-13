@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: 353,
+              height: MediaQuery.of(context).size.height * 0.5,
               width: double.infinity,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -37,33 +37,27 @@ class ProfileScreen extends StatelessWidget {
                         scale: 0.85,
                       ),
                       Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const <Widget>[
-                            Text(
-                              'Welcome back,',
-                              style: TextStyle(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const <Widget>[
+                          Text(
+                            'Welcome back,',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17,
+                            ),
+                          ),
+                          Text(
+                            'CrimeMasterGogo',
+                            style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Text(
-                              'CrimeMasterGogo',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ])
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      )
                     ],
                   ),
-                  // Center(
-                  //   child:SingleChildScrollView(
-                  //     reverse: true,
-                  //     child: Column(
-                  //       mainAxisAlignment: MainAxisAlignment.center,
-                  //       mainAxisSize: MainAxisSize.max,
-                  //       children: [SizedBox(height: 100, width: double.infinity)]),
                   const SizedBox(height: 34, width: double.infinity),
                   Container(
                     height: 405,
@@ -87,7 +81,8 @@ class ProfileScreen extends StatelessWidget {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.fromLTRB(258, 20, 16, 0),
-                          child: Image.asset('assets/images/png/pencil_icon.png',
+                          child: Image.asset(
+                              'assets/images/png/pencil_icon.png',
                               alignment: Alignment.topLeft),
                         ),
                         const Padding(
@@ -114,12 +109,16 @@ class ProfileScreen extends StatelessWidget {
                                     Color.fromRGBO(33, 25, 25, 100)),
                           ),
                         ),
-                        Column(children: const [Divider(
-                          height: 12,
-                          thickness: 3,
-                          indent:53,
-                          endIndent: 60,
-                        )],),
+                        Column(
+                          children: const [
+                            Divider(
+                              height: 12,
+                              thickness: 3,
+                              indent: 53,
+                              endIndent: 60,
+                            )
+                          ],
+                        ),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(34, 20, 208, 0),
                           child: Text(
@@ -144,12 +143,16 @@ class ProfileScreen extends StatelessWidget {
                                     Color.fromRGBO(33, 25, 25, 100)),
                           ),
                         ),
-                        Column(children: const [Divider(
-                          height: 12,
-                          thickness: 3,
-                          indent:53,
-                          endIndent: 60,
-                        )],),
+                        Column(
+                          children: const [
+                            Divider(
+                              height: 12,
+                              thickness: 3,
+                              indent: 53,
+                              endIndent: 60,
+                            )
+                          ],
+                        ),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(34, 20, 0, 0),
                           child: Text(
@@ -174,12 +177,16 @@ class ProfileScreen extends StatelessWidget {
                                     Color.fromRGBO(33, 25, 25, 100)),
                           ),
                         ),
-                        Column(children: const [Divider(
-                          height: 12,
-                          thickness: 3,
-                          indent:53,
-                          endIndent: 60,
-                        )],),
+                        Column(
+                          children: const [
+                            Divider(
+                              height: 12,
+                              thickness: 3,
+                              indent: 53,
+                              endIndent: 60,
+                            )
+                          ],
+                        ),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(34, 20, 0, 0),
                           child: Text(
@@ -204,12 +211,16 @@ class ProfileScreen extends StatelessWidget {
                                     Color.fromRGBO(33, 25, 25, 100)),
                           ),
                         ),
-                        Column(children: const [ Divider(
-                          height: 12,
-                          thickness: 3,
-                          indent:53,
-                          endIndent: 60,
-                        )],),
+                        Column(
+                          children: const [
+                            Divider(
+                              height: 12,
+                              thickness: 3,
+                              indent: 53,
+                              endIndent: 60,
+                            )
+                          ],
+                        ),
                       ],
                     ),
                   ),
