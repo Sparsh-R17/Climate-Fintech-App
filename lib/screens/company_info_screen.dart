@@ -28,6 +28,7 @@ class _CompanyInfoScreenState extends State<CompanyInfoScreen> {
     final pageHeight = MediaQuery.of(context).size.height;
     final pageWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: displayedCompaniesDetails![0].color,
       body: SafeArea(
         child: Column(
@@ -41,7 +42,7 @@ class _CompanyInfoScreenState extends State<CompanyInfoScreen> {
                   Navigator.of(context).pop();
                 },
                 color: Colors.white30,
-                textColor: Color.fromARGB(255, 73, 72, 72),
+                textColor: const Color.fromARGB(255, 73, 72, 72),
                 shape: const CircleBorder(),
                 child: const Icon(
                   Icons.close_outlined,

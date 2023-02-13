@@ -1,6 +1,6 @@
-// & BackUp Plan
-
 import 'package:flutter/material.dart';
+
+import 'payment_bottom_sheet.dart';
 
 class CompanyInfo extends StatefulWidget {
   final Color buttonColor;
@@ -67,38 +67,54 @@ class _CompanyInfoState extends State<CompanyInfo> {
                         SizedBox(
                           height: pageHeight * 0.004,
                         ),
-                        const Icon(
-                          Icons.email_outlined,
-                          color: Color.fromARGB(255, 73, 72, 72),
-                        ),
-                        SizedBox(
-                          height: pageHeight * 0.002,
-                        ),
-                        SizedBox(
-                          width: pageWidth * 0.24,
-                          child: const FittedBox(
-                            fit: BoxFit.fitHeight,
-                            child: Text(
-                              'Email Address',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 73, 72, 72),
+                        InkWell(
+                          onTap: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                behavior: SnackBarBehavior.floating,
+                                showCloseIcon: true,
+                                closeIconColor: Colors.white,
+                                content: Text(
+                                  'E-mail :- ${widget.email}',
+                                ),
                               ),
+                            );
+                          },
+                          child: Container(
+                            width: pageWidth * 0.28,
+                            height: pageHeight * 0.09,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: widget.pageColor,
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: pageWidth * 0.16,
+                                  padding: EdgeInsets.only(
+                                    left: pageWidth * 0.01,
+                                  ),
+                                  margin:
+                                      EdgeInsets.only(left: pageWidth * 0.02),
+                                  child: const Text(
+                                    'VIEW MAIL',
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 73, 72, 72),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.mail_outline,
+                                  color: Color.fromARGB(255, 73, 72, 72),
+                                  size: 30,
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         SizedBox(
                           height: pageHeight * 0.001,
-                        ),
-                        SizedBox(
-                          width: pageWidth * 0.20,
-                          child: FittedBox(
-                            fit: BoxFit.fitHeight,
-                            child: Text(
-                              widget.email,
-                              style: const TextStyle(
-                                  color: Color.fromARGB(255, 73, 72, 72)),
-                            ),
-                          ),
                         ),
                       ],
                     ),
@@ -148,7 +164,21 @@ class _CompanyInfoState extends State<CompanyInfo> {
             width: pageWidth * 0.82,
             height: pageHeight * 0.04,
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
+                  ),
+                  enableDrag: true,
+                  context: context,
+                  builder: (context) {
+                    return const AmountBottomSheet();
+                  },
+                );
+              },
               color: widget.buttonColor,
               textColor: const Color.fromARGB(255, 73, 72, 72),
               child: const Text(
