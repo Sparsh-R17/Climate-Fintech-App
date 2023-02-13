@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../screens/payment.dart';
+import 'payment_bottom_sheet.dart';
 
 class ViewDonation extends StatefulWidget {
   final String name;
@@ -138,8 +138,19 @@ class _ViewDonationState extends State<ViewDonation> {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(PaymentPage.routeName);
+                            showModalBottomSheet(
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  topRight: Radius.circular(15),
+                                ),
+                              ),
+                              enableDrag: true,
+                              context: context,
+                              builder: (context) {
+                                return const AmountBottomSheet();
+                              },
+                            );
                           },
                           child: const FittedBox(
                             fit: BoxFit.fitWidth,

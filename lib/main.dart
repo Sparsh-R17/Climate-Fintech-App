@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'config/colors.dart';
 import 'providers/disaster_provider.dart';
 
 import '/models/donation.dart';
@@ -49,6 +50,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'CFA',
         theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColor.iconBrown,
+          ),
           textTheme: GoogleFonts.interTextTheme(
             Theme.of(context).textTheme,
           ),

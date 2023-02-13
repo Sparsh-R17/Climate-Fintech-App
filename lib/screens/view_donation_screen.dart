@@ -42,6 +42,7 @@ class _ViewDonationScreenState extends State<ViewDonationScreen> {
     final donationContainer = Provider.of<DonationProvider>(context);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColor.iconBrown,
         title: const Text('Host Donation'),

@@ -6,11 +6,14 @@ class PaymentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Text('Redirecting you to payment page'),
-        ),
+    final amt = ModalRoute.of(context)!.settings.arguments as String;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Payment Page'),
+      ),
+      body: Center(
+        child: Text('Payment of Rs.$amt to be done'),
       ),
     );
   }

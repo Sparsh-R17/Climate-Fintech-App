@@ -82,13 +82,6 @@ class _TabsScreenState extends State<TabsScreen> {
               child: _pages![_selectedPageIndex]['page'],
               onRefresh: () => _refreshPage(context),
             ),
-            floatingActionButton: FloatingActionButton(
-                backgroundColor: Colors.red,
-                child: const Icon(Icons.add),
-                onPressed: () {
-                  Provider.of<CurrentDisasterProvider>(context, listen: false)
-                      .addDisaster();
-                }),
             drawer: const CustomDrawer(),
             bottomNavigationBar: BottomNavigationBar(
               enableFeedback: true,
