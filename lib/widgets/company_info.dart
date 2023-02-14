@@ -72,8 +72,8 @@ class _CompanyInfoState extends State<CompanyInfo> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 behavior: SnackBarBehavior.floating,
-                                // showCloseIcon: true,
-                                // closeIconColor: Colors.white,
+                                showCloseIcon: true,
+                                closeIconColor: Colors.white,
                                 content: Text(
                                   'E-mail :- ${widget.email}',
                                 ),

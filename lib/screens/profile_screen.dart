@@ -154,7 +154,9 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(
                       height: pageHeight * 0.02,
                     ),
-                    const PaymentCardScreen()
+                    const PaymentCardScreen(
+                      
+                    )
                   ],
                 ),
               ),

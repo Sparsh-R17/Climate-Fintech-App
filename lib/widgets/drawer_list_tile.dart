@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/screens/profile_screen.dart';
+
 class DrawerListTile extends StatefulWidget {
   final Color containerColor;
   final String name;
@@ -34,7 +36,9 @@ class _DrawerListTileState extends State<DrawerListTile> {
             toggleButton = !toggleButton;
           });
         } else {
-          print('Tap detected');
+          if (widget.index == 0) {
+            Navigator.of(context).pushNamed(ProfileScreen.routeName);
+          }
         }
       },
       child: ListTile(

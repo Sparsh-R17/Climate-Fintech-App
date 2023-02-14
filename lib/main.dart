@@ -20,6 +20,7 @@ import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
 import './screens/login.dart';
 import './screens/signup.dart';
+import 'screens/payment_card_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
           SignUp.routeName: (context) => const SignUp(),
           ForgetPassword.routeName: (context) => const ForgetPassword(),
           TabsScreen.routeName: (context) => const TabsScreen(),
-          ProfileScreen.routeName: (context) => const ProfileScreen(),
+          ProfileScreen.routeName: (context) =>  ProfileScreen(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),
