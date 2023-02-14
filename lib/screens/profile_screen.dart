@@ -10,12 +10,12 @@ class ProfileScreen extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: 270,
               width: double.infinity,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
+                  bottomLeft: Radius.circular(105),
+                  bottomRight: Radius.circular(105),
                 ),
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -24,55 +24,32 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(31, 68, 25, 36),
+              padding: const EdgeInsets.fromLTRB(31, 80, 25, 36),
+              // padding: const EdgeInsets.fromLTRB(31, 100, 25, 36),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/images/png/Profile Picture.png',
-                        scale: 0.85,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const <Widget>[
-                          Text(
-                            'Welcome back,',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                            ),
-                          ),
-                          Text(
-                            'CrimeMasterGogo',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )
-                    ],
                   ),
-                  const SizedBox(height: 34, width: double.infinity),
+                  const SizedBox(height: 2, width: double.infinity),
                   Container(
-                    height: 405,
-                    width: 307,
+                    height: 280,
+                    width: 290,
                     decoration: const BoxDecoration(
-                      color: Colors.white,
+                      color: Color.fromRGBO(255, 255, 255, 0.9),
+                      // color: Colors.white.withOpacity(0.1),
                       borderRadius: BorderRadius.all(
                         Radius.circular(30),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 10,
-                          spreadRadius: 4,
-                        )
+                            // color: Colors.grey,
+                            // blurRadius: 4,
+                            // blurRadius: 10,
+                            // spreadRadius: 4,
+                            )
                       ],
                     ),
                     child: Column(
@@ -80,154 +57,200 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(258, 20, 16, 0),
+                          padding: const EdgeInsets.fromLTRB(80, 28, 16, 0),
                           child: Image.asset(
-                              'assets/images/png/pencil_icon.png',
-                              alignment: Alignment.topLeft),
+                            'assets/images/png/Profile Picture.png',
+                            alignment: Alignment.center,
+                            scale: 0.7,
+                          ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.fromLTRB(34, 28, 208, 0),
+                          padding: EdgeInsets.fromLTRB(120, 10, 16, 0),
                           child: Text(
                             'Name',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 17,
+                              fontSize: 22,
                               fontWeight: FontWeight.w600,
                             ),
-                            textAlign: TextAlign.left,
+                            textAlign: TextAlign.center,
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.fromLTRB(53, 9, 0, 0),
+                          padding: EdgeInsets.fromLTRB(99, 10, 16, 0),
                           child: Text(
-                            'CrimeMasterGogo',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Color.fromRGBO(33, 25, 25, 100),
-                                // decoration: TextDecoration.underline,
-                                decorationColor:
-                                    Color.fromRGBO(33, 25, 25, 100)),
-                          ),
-                        ),
-                        Column(
-                          children: const [
-                            Divider(
-                              height: 12,
-                              thickness: 3,
-                              indent: 53,
-                              endIndent: 60,
-                            )
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(34, 20, 208, 0),
-                          child: Text(
-                            'D.O.B',
+                            '@username',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                             ),
-                            textAlign: TextAlign.left,
+                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(53, 9, 0, 0),
-                          child: Text(
-                            '29/02/2023',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Color.fromRGBO(33, 25, 25, 100),
-                                // decoration: TextDecoration.underline,
-                                decorationColor:
-                                    Color.fromRGBO(33, 25, 25, 100)),
-                          ),
-                        ),
-                        Column(
-                          children: const [
-                            Divider(
-                              height: 12,
-                              thickness: 3,
-                              indent: 53,
-                              endIndent: 60,
-                            )
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(34, 20, 0, 0),
-                          child: Text(
-                            'Mobile No.',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(53, 9, 0, 0),
-                          child: Text(
-                            '6969696969',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Color.fromRGBO(33, 25, 25, 100),
-                                // decoration: TextDecoration.underline,
-                                decorationColor:
-                                    Color.fromRGBO(33, 25, 25, 100)),
-                          ),
-                        ),
-                        Column(
-                          children: const [
-                            Divider(
-                              height: 12,
-                              thickness: 3,
-                              indent: 53,
-                              endIndent: 60,
-                            )
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(34, 20, 0, 0),
-                          child: Text(
-                            'Email ID',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(53, 9, 0, 0),
-                          child: Text(
-                            'trial@app.com',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Color.fromRGBO(33, 25, 25, 100),
-                                // decoration: TextDecoration.underline,
-                                decorationColor:
-                                    Color.fromRGBO(33, 25, 25, 100)),
-                          ),
-                        ),
-                        Column(
-                          children: const [
-                            Divider(
-                              height: 12,
-                              thickness: 3,
-                              indent: 53,
-                              endIndent: 60,
-                            )
-                          ],
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 24,
-                    width: double.infinity,
-                  ),
+                  Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(1, 30, 16, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/png/date_of_birth.png',
+                                    alignment: Alignment.topLeft,
+                                    scale: 10,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const <Widget>[
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(15, 30, 16, 0),
+                                        child: Text(
+                                          'D.O.B',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(15, 10, 16, 0),
+                                        child: Text(
+                                          '09/09/0009',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(1, 1, 16, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/png/mobile_number.png',
+                                    alignment: Alignment.topLeft,
+                                    scale: 10,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const <Widget>[
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(15, 30, 16, 0),
+                                        child: Text(
+                                          'Mobile No.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(15, 10, 16, 0),
+                                        child: Text(
+                                          '090900808',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(1, 1, 16, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/png/email_id.png',
+                                    scale: 60,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const <Widget>[
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(6, 35, 16, 0),
+                                        child: Text(
+                                          'Email id.',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(6, 15, 16, 0),
+                                        child: Text(
+                                          'letsmeet@kaal.com',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ])
                 ],
               ),
             ),
