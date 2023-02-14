@@ -1,3 +1,5 @@
+import 'package:climate_fintech_app/screens/profile_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -58,16 +60,22 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme,
           ),
         ),
+        initialRoute: FirebaseAuth.instance.currentUser == null
+            ? LoginPage.routeName
+            : TabsScreen.routeName,
         routes: {
-          '/': (context) => const PaymentCardScreen(),
+          // '/': (context) => const PaymentCardScreen(),
+          // '/': (context) => const ProfileScreen(),
           ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUp.routeName: (context) => const SignUp(),
           ForgetPassword.routeName: (context) => const ForgetPassword(),
           TabsScreen.routeName: (context) => const TabsScreen(),
+          ProfileScreen.routeName: (context) => const ProfileScreen(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),
+          PaymentCardScreen.routeName: (context)=> const PaymentCardScreen(),
         },
       ),
     );

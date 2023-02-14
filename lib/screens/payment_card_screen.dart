@@ -4,6 +4,7 @@ import '../models/cards.dart';
 import '../widgets/card_design.dart';
 
 class PaymentCardScreen extends StatefulWidget {
+  static const routeName = '/PaymentCardScreen';
   const PaymentCardScreen({super.key});
 
   @override
