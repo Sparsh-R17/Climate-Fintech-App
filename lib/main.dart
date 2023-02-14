@@ -14,7 +14,6 @@ import './screens/view_donation_screen.dart';
 import '/screens/company_info_screen.dart';
 
 import '/screens/profile_screen.dart';
-import '/screens/payment_card_screen.dart';
 import '/screens/forget_password.dart';
 import '/screens/payment.dart';
 import 'screens/company_list.dart';

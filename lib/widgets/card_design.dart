@@ -45,7 +45,7 @@ class CardDesign extends StatelessWidget {
               ),
             ),
             AspectRatio(
-              aspectRatio: 1.58,
+              aspectRatio: 16 / 11,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: Column(
@@ -95,12 +95,18 @@ class CardDesign extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            cardNumber,
-                            style: GoogleFonts.lato(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                cardNumber,
+                                style: GoogleFonts.lato(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
                             ),
                           ),
                           const Spacer(),
@@ -155,7 +161,7 @@ class CardDesign extends StatelessWidget {
                           Text(
                             name,
                             style: GoogleFonts.poppins(
-                              fontSize: 16,
+                              fontSize: 14,
                               color: Colors.white,
                             ),
                           ),
@@ -164,6 +170,7 @@ class CardDesign extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.12,
                             child: SvgPicture.asset(
                               logo,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ],

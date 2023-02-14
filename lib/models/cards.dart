@@ -21,6 +21,15 @@ class PaymentCard {
 List<PaymentCard> userCards = [
   PaymentCard(
     name: 'SPARSH RAJPUT',
+    cardDesign: 'assets/images/svg/hexa_card.svg',
+    cardNumber: '**** **** **** 6789',
+    chip: 'assets/images/svg/silver_chip.svg',
+    expDate: '03/24',
+    logo: 'assets/images/svg/mastercard_white.svg',
+    type: 'Debit',
+  ),
+  PaymentCard(
+    name: 'SPARSH RAJPUT',
     cardDesign: 'assets/images/svg/symmetric_card.svg',
     cardNumber: '**** **** **** 6789',
     chip: 'assets/images/svg/silver_chip.svg',

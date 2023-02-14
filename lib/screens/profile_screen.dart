@@ -1,261 +1,165 @@
+import '/screens/payment_card_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../widgets/profile_tile.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = '/ProfileScreen';
-  const ProfileScreen({super.key});
+
+  ProfileScreen({super.key});
+
+  List tileData = [
+    {
+      'icon': Icons.date_range,
+      'tileTitle': 'D.O.B.',
+      'data': '13/12/2002',
+    },
+    {
+      'icon': Icons.phone,
+      'tileTitle': 'Mobile No.',
+      'data': '9898989898',
+    },
+    {
+      'icon': Icons.mail,
+      'tileTitle': 'Email ID',
+      'data': 'trial@xyz.com',
+    },
+    {
+      'icon': Icons.person,
+      'tileTitle': 'Gender',
+      'data': 'Male',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: 270,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(105),
-                  bottomRight: Radius.circular(105),
-                ),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/png/profilecard_image.png'),
+    final pageHeight = MediaQuery.of(context).size.height;
+    final pageWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                height: pageHeight * 0.31,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(130),
+                    bottomRight: Radius.circular(130),
+                  ),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image:
+                        AssetImage('assets/images/png/profilecard_image.png'),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(31, 80, 25, 36),
-              // padding: const EdgeInsets.fromLTRB(31, 100, 25, 36),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  ),
-                  const SizedBox(height: 2, width: double.infinity),
-                  Container(
-                    height: 280,
-                    width: 290,
-                    decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 255, 255, 0.9),
-                      // color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(30),
+              Container(
+                margin: EdgeInsets.only(
+                  top: pageHeight * 0.02,
+                  left: pageWidth * 0.05,
+                  right: pageWidth * 0.05,
+                ),
+                width: pageWidth * 0.9,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: const Icon(
+                          Icons.home,
+                          size: 30,
+                        ),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                            // color: Colors.grey,
-                            // blurRadius: 4,
-                            // blurRadius: 10,
-                            // spreadRadius: 4,
-                            )
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(80, 28, 16, 0),
-                          child: Image.asset(
-                            'assets/images/png/Profile Picture.png',
-                            alignment: Alignment.center,
-                            scale: 0.7,
-                          ),
+                      IconButton(
+                        onPressed: () {
+                          //TODO ADD LOGOUT FUNCTION HERE
+                        },
+                        icon: const Icon(
+                          Icons.exit_to_app,
+                          size: 30,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(120, 10, 16, 0),
-                          child: Text(
-                            'Name',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(99, 10, 16, 0),
-                          child: Text(
-                            '@username',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(1, 30, 16, 0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Image.asset(
-                                    'assets/images/png/date_of_birth.png',
-                                    alignment: Alignment.topLeft,
-                                    scale: 10,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const <Widget>[
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(15, 30, 16, 0),
-                                        child: Text(
-                                          'D.O.B',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(15, 10, 16, 0),
-                                        child: Text(
-                                          '09/09/0009',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(1, 1, 16, 0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Image.asset(
-                                    'assets/images/png/mobile_number.png',
-                                    alignment: Alignment.topLeft,
-                                    scale: 10,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const <Widget>[
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(15, 30, 16, 0),
-                                        child: Text(
-                                          'Mobile No.',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(15, 10, 16, 0),
-                                        child: Text(
-                                          '090900808',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(1, 1, 16, 0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Image.asset(
-                                    'assets/images/png/email_id.png',
-                                    scale: 60,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const <Widget>[
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(6, 35, 16, 0),
-                                        child: Text(
-                                          'Email id.',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(6, 15, 16, 0),
-                                        child: Text(
-                                          'letsmeet@kaal.com',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ])
-                ],
+                      )
+                    ]),
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.only(
+                  top: pageHeight * 0.14,
+                ),
+                // height: pageHeight * 1.37,
+                // color: Colors.red,
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    Container(
+                      height: pageHeight * 0.3,
+                      width: pageHeight * 0.3,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 10), // changes position of shadow
+                          ),
+                        ],
+                        color: const Color.fromARGB(255, 250, 250, 250),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(30),
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: pageHeight * 0.04,
+                          ),
+                          const CircleAvatar(
+                            radius: 60,
+                            foregroundImage: AssetImage(
+                                'assets/images/png/Profile Picture.png'),
+                          ),
+                          SizedBox(
+                            height: pageHeight * 0.02,
+                          ),
+                          Text(
+                            'Sparsh Rajput',
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            '@username',
+                            style: GoogleFonts.poppins(
+                              color: const Color.fromARGB(255, 134, 134, 134),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: pageHeight * 0.04,
+                    ),
+                    Column(
+                      children: tileData.map((value) {
+                        return ProfileTile(
+                          tileIcon: value['icon'],
+                          tileTitle: value['tileTitle'],
+                          tileData: value['data'],
+                        );
+                      }).toList(),
+                    ),
+                    SizedBox(
+                      height: pageHeight * 0.02,
+                    ),
+                    const PaymentCardScreen()
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -14,37 +14,30 @@ class PaymentCardScreen extends StatefulWidget {
 class _PaymentCardScreenState extends State<PaymentCardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Saved Cards'),
-      ),
-      body: Center(
-        child: SizedBox(
-          // height: MediaQuery.of(context).size.height * 0.3,
-          child: CarouselSlider.builder(
-            itemCount: userCards.length,
-            options: CarouselOptions(
-              aspectRatio: 2,
-              initialPage: 0,
-              viewportFraction: 0.75,
-              enableInfiniteScroll: true,
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enlargeCenterPage: true,
-              enlargeFactor: 0.3,
-            ),
-            itemBuilder: (context, index, realIndex) {
-              return CardDesign(
-                cardDesign: userCards[index].cardDesign,
-                cardNumber: userCards[index].cardNumber,
-                chip: userCards[index].chip,
-                expDate: userCards[index].expDate,
-                name: userCards[index].name,
-                logo: userCards[index].logo,
-                type: userCards[index].type,
-              );
-            },
-          ),
+    return SizedBox(
+      // height: MediaQuery.of(context).size.height * 0.3,
+      child: CarouselSlider.builder(
+        itemCount: userCards.length,
+        options: CarouselOptions(
+          aspectRatio: 2,
+          initialPage: 0,
+          viewportFraction: 0.75,
+          enableInfiniteScroll: true,
+          autoPlayCurve: Curves.fastOutSlowIn,
+          enlargeCenterPage: true,
+          enlargeFactor: 0.3,
         ),
+        itemBuilder: (context, index, realIndex) {
+          return CardDesign(
+            cardDesign: userCards[index].cardDesign,
+            cardNumber: userCards[index].cardNumber,
+            chip: userCards[index].chip,
+            expDate: userCards[index].expDate,
+            name: userCards[index].name,
+            logo: userCards[index].logo,
+            type: userCards[index].type,
+          );
+        },
       ),
     );
   }
