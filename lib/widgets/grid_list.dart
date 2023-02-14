@@ -1,4 +1,3 @@
-import 'package:climate_fintech_app/widgets/view_donation.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/company_list.dart';

@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   controller: _emailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Email',
                   ),
                 ),
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   obscureText: true,
                   controller: _passwordController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Password',
                   ),
                 ),
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                               }
                             } catch (e) {
                               print(e);
-                              
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(

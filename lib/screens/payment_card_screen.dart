@@ -1,12 +1,7 @@
-import 'dart:math';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-
 import '../models/cards.dart';
 import '../widgets/card_design.dart';
-import '/widgets/payment_card_design.dart';
 
 class PaymentCardScreen extends StatefulWidget {
   const PaymentCardScreen({super.key});

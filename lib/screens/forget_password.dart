@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '/config/colors.dart';
-import '/screens/login.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,18 +56,18 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
 
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.left,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Email',
                   ),
                   controller: _emailController,
                 ),
                 //
-                Spacer(),
+                const Spacer(),
                 Container(
                   margin: EdgeInsets.only(
                       bottom: MediaQuery.of(context).size.height * 0.2),
@@ -86,7 +85,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           SnackBar(
                             content: Text(
                               e.toString(),
-                              style: TextStyle(fontSize: 16),
+                              style: const TextStyle(fontSize: 16),
                             ),
                           ),
                         );

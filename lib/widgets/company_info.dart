@@ -162,7 +162,7 @@ class _CompanyInfoState extends State<CompanyInfo> {
             margin: EdgeInsets.only(
                 top: pageHeight * 0.02, bottom: pageHeight * 0.02),
             width: pageWidth * 0.82,
-            height: pageHeight * 0.04,
+            height: pageHeight * 0.03,
             child: MaterialButton(
               onPressed: () {
                 showModalBottomSheet(

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import '/models/current_disaster.dart';
-import '../config/colors.dart';
 
 class CurrentDisasterProvider with ChangeNotifier {
   int cardIndex = 0;
@@ -98,7 +97,7 @@ class CurrentDisasterProvider with ChangeNotifier {
           ),
         );
       });
-     
+
       _disasterList = disasterLoaded;
       notifyListeners();
     } catch (error) {

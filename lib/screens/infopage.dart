@@ -43,10 +43,10 @@ class _InfoPgState extends State<InfoPg> {
                           }),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(119, 255, 255, 255),
+                              color: const Color.fromARGB(119, 255, 255, 255),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.close,
                               color: Colors.white,
                               size: 24,
@@ -64,7 +64,7 @@ class _InfoPgState extends State<InfoPg> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             //color: Colors.red,
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               image: AssetImage('assets/images/say_trees.png'),
                               fit: BoxFit.cover,
                             ),
@@ -84,7 +84,7 @@ class _InfoPgState extends State<InfoPg> {
                     right: MediaQuery.of(context).size.width * 0.05,
                     top: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
                       topLeft: Radius.circular(20),
@@ -104,7 +104,7 @@ class _InfoPgState extends State<InfoPg> {
                             //Autosize Text to be put
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         //cnj jb
@@ -115,7 +115,7 @@ class _InfoPgState extends State<InfoPg> {
                                       MediaQuery.of(context).size.height * 0.24,
                                   child: Container(
                                       //color: Colors.blue,
-                                      child: Text(
+                                      child: const Text(
                                     'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
                                   )),
                                 )
@@ -125,7 +125,7 @@ class _InfoPgState extends State<InfoPg> {
                                         MediaQuery.of(context).size.height *
                                             0.55,
                                   ),
-                                  child: SingleChildScrollView(
+                                  child: const SingleChildScrollView(
                                     child: Text(
                                       'Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. Bangalore, fondly called “The city of Gardens” inspired fables and verses alike. With an unbelievably pleasant weather throughout the year, it was a green haven for decades. Corporatisation of the city and rapid influx of the IT industry brought jobs and investments galore, but took a toll on the natural beauty the city was blessed with. While concrete jungles started birthing, trees were felled at a pace that worried the old timers and tree lovers. That\'s when a motley group of individuals - software engineers at work and passionate tree lovers at heart came together, and \‘SayTrees\’ was born. ',
                                     ),
@@ -140,7 +140,7 @@ class _InfoPgState extends State<InfoPg> {
                           },
                           child: clickChecker
                               ? Row(
-                                  children: [
+                                  children: const [
                                     Text(
                                       'Read More',
                                       style: TextStyle(
@@ -155,7 +155,7 @@ class _InfoPgState extends State<InfoPg> {
                                   ],
                                 )
                               : Row(
-                                  children: [
+                                  children: const [
                                     Text(
                                       'Read Less',
                                       style: TextStyle(
@@ -196,13 +196,13 @@ class _InfoPgState extends State<InfoPg> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: AppColor.green,
                               ),
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     child: Row(
-                                      children: [
+                                      children: const [
                                         Icon(
                                           Icons.phone,
                                           color: Colors.white,
@@ -224,18 +224,18 @@ class _InfoPgState extends State<InfoPg> {
                                     height: MediaQuery.of(context).size.height *
                                         0.07,
                                     //color: Colors.red,
-                                    child: Text(
+                                    child: const Text(
                                       "+91 - 96635 77758\n+91 - 96635 77748\n+91 - 99102 98215\n(Northern India)",
                                       maxLines: 3,
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 13),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Row(
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.location_on,
                                         color: Colors.white,
@@ -250,7 +250,7 @@ class _InfoPgState extends State<InfoPg> {
                                       )
                                     ],
                                   ),
-                                  Text(
+                                  const Text(
                                     'SayTrees,\nNo. 6, 1st cross, first floor,\nBasapura, Near Hosa Road Junction,\nBengaluru, Karnataka - 560100',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -260,7 +260,7 @@ class _InfoPgState extends State<InfoPg> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Column(
@@ -275,11 +275,11 @@ class _InfoPgState extends State<InfoPg> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.email,
                                           color: Colors.white,
                                         ),
-                                        Text(
+                                        const Text(
                                           'Email',
                                           style: TextStyle(
                                             color: Colors.white,
@@ -293,7 +293,7 @@ class _InfoPgState extends State<InfoPg> {
                                                       .size
                                                       .width *
                                                   0.24),
-                                          child: Text(
+                                          child: const Text(
                                             'info@saytress.org',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
@@ -306,7 +306,7 @@ class _InfoPgState extends State<InfoPg> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 GestureDetector(
@@ -330,7 +330,7 @@ class _InfoPgState extends State<InfoPg> {
                                                               .size
                                                               .width *
                                                           0.24),
-                                              child: Text(
+                                              child: const Text(
                                                 'GO TO WEBSITE',
                                                 style: TextStyle(
                                                   color: Colors.white,
@@ -338,7 +338,7 @@ class _InfoPgState extends State<InfoPg> {
                                                 ),
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.arrow_forward,
                                               color: Colors.white,
                                             )
@@ -365,11 +365,11 @@ class _InfoPgState extends State<InfoPg> {
                             print('Donate is Pressed');
                           }),
                           style: ElevatedButton.styleFrom(
-                            primary: AppColor.iconGreen,
+                            backgroundColor: AppColor.iconGreen,
                           ),
                           child: Container(
-                            padding: EdgeInsets.all(15),
-                            child: Text(
+                            padding: const EdgeInsets.all(15),
+                            child: const Text(
                               'DONATE NOW',
                               style: TextStyle(
                                 color: Colors.white,
