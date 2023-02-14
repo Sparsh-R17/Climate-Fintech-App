@@ -4,11 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/profile_tile.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static const routeName = '/ProfileScreen';
 
-  ProfileScreen({super.key});
+  const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  bool _viewCard = false;
   List tileData = [
     {
       'icon': Icons.date_range,
@@ -154,9 +160,58 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(
                       height: pageHeight * 0.02,
                     ),
-                    const PaymentCardScreen(
-                      
-                    )
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _viewCard = !_viewCard;
+                        });
+                      },
+                      child: Container(
+                        width: pageWidth * 0.9,
+                        margin:
+                            EdgeInsets.symmetric(horizontal: pageWidth * 0.04),
+                        padding: EdgeInsets.only(left: pageWidth * 0.04),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              _viewCard ? 'Hide Cards' : 'Show Saved Cards',
+                              style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: pageWidth * 0.02,
+                              ),
+                              child: Visibility(
+                                visible: _viewCard,
+                                child: GestureDetector(
+                                    onTap: () {
+                                      //TODO navigate to changes in card
+                                    },
+                                    child: const Icon(Icons.edit)),
+                              ),
+                            ),
+                            Icon(
+                              _viewCard
+                                  ? Icons.expand_less_rounded
+                                  : Icons.expand_more_rounded,
+                              color: const Color.fromARGB(255, 134, 134, 134),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: pageHeight * 0.02,
+                    ),
+                    Visibility(
+                      visible: _viewCard,
+                      child: const PaymentCardScreen(),
+                    ),
                   ],
                 ),
               ),
