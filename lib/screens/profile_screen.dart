@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/profile_tile.dart';
+import 'edit_card_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/ProfileScreen';
@@ -189,10 +190,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Visibility(
                                 visible: _viewCard,
                                 child: GestureDetector(
-                                    onTap: () {
-                                      //TODO navigate to changes in card
-                                    },
-                                    child: const Icon(Icons.edit)),
+                                  onTap: () {
+                                    //TODO navigate to changes in card
+                                    Navigator.of(context)
+                                        .pushNamed(EditCardScreen.routeName);
+                                  },
+                                  child: const Icon(Icons.edit),
+                                ),
                               ),
                             ),
                             Icon(

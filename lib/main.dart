@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'config/colors.dart';
+import 'models/cards.dart';
 import 'providers/disaster_provider.dart';
 
 import '/models/donation.dart';
@@ -20,6 +21,7 @@ import 'screens/company_list.dart';
 import '/screens/tabs_screen.dart';
 import './screens/login.dart';
 import './screens/signup.dart';
+import 'screens/edit_card_screen.dart';
 import 'screens/payment_card_screen.dart';
 
 void main() async {
@@ -49,6 +51,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => DonationProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => PaymentCardProvider(),
+        )
       ],
       child: MaterialApp(
         title: 'CFA',
@@ -68,14 +73,15 @@ class MyApp extends StatelessWidget {
           // '/': (context) => const ProfileScreen(),
           ViewDonationScreen.routeName: (context) => const ViewDonationScreen(),
           LoginPage.routeName: (context) => const LoginPage(),
+          EditCardScreen.routeName: (context) => const EditCardScreen(),
           SignUp.routeName: (context) => const SignUp(),
           ForgetPassword.routeName: (context) => const ForgetPassword(),
           TabsScreen.routeName: (context) => const TabsScreen(),
-          ProfileScreen.routeName: (context) =>  ProfileScreen(),
+          ProfileScreen.routeName: (context) => ProfileScreen(),
           CompanyList.routeName: (context) => const CompanyList(),
           CompanyInfoScreen.routeName: (context) => const CompanyInfoScreen(),
           PaymentPage.routeName: (context) => const PaymentPage(),
-          PaymentCardScreen.routeName: (context)=> const PaymentCardScreen(),
+          PaymentCardScreen.routeName: (context) => const PaymentCardScreen(),
         },
       ),
     );

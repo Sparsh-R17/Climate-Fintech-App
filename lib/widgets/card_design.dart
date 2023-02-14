@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../models/cards.dart';
 
 class CardDesign extends StatelessWidget {
+  final String id;
+  final bool editAccess;
   final String name;
   final String cardDesign;
   final String type;
@@ -19,7 +24,100 @@ class CardDesign extends StatelessWidget {
     required this.expDate,
     required this.chip,
     required this.logo,
+    required this.id,
+    required this.editAccess,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    return editAccess
+        ? Dismissible(
+            key: UniqueKey(),
+            direction: DismissDirection.endToStart,
+            onDismissed: (direction) {
+              Provider.of<PaymentCardProvider>(context, listen: false)
+                  .removeCard(id);
+            },
+            confirmDismiss: (direction) {
+              return showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                        title: const Text('Are you sure ?'),
+                        content: const Text(
+                            'Do you want to remove the item from the cart ?'),
+                        actions: [
+                          TextButton(
+                            child: const Text('NO'),
+                            onPressed: () => Navigator.pop(context, false),
+                          ),
+                          TextButton(
+                            child: const Text('YES'),
+                            onPressed: () => Navigator.pop(context, true),
+                          ),
+                        ],
+                      ));
+            },
+            background: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.error,
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
+                ),
+              ),
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 30),
+              margin: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 4,
+              ),
+              child: const Icon(
+                Icons.delete,
+                color: Colors.white,
+                size: 40,
+              ),
+            ),
+            child: CardDesignEdit(
+              cardDesign: cardDesign,
+              type: type,
+              chip: chip,
+              cardNumber: cardNumber,
+              expDate: expDate,
+              name: name,
+              logo: logo,
+            ),
+          )
+        : CardDesignEdit(
+            cardDesign: cardDesign,
+            type: type,
+            chip: chip,
+            cardNumber: cardNumber,
+            expDate: expDate,
+            name: name,
+            logo: logo,
+          );
+  }
+}
+
+class CardDesignEdit extends StatelessWidget {
+  const CardDesignEdit({
+    super.key,
+    required this.cardDesign,
+    required this.type,
+    required this.chip,
+    required this.cardNumber,
+    required this.expDate,
+    required this.name,
+    required this.logo,
+  });
+
+  final String cardDesign;
+  final String type;
+  final String chip;
+  final String cardNumber;
+  final String expDate;
+  final String name;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
