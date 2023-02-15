@@ -23,7 +23,7 @@ class PaymentCard {
 }
 
 class PaymentCardProvider with ChangeNotifier {
-  List<PaymentCard> _userCards = [
+  final List<PaymentCard> _userCards = [
     PaymentCard(
       id: '0',
       name: 'SPARSH RAJPUT',
@@ -80,10 +80,10 @@ class PaymentCardProvider with ChangeNotifier {
     return [..._userCards];
   }
 
-  void addCard(String number, String cvv, String date) {
+  void addCard(String number, String cvv, String date, String name) {
     _userCards.add(PaymentCard(
       id: (_userCards.length + 1).toString(),
-      name: 'SPARSH RAJPUT',
+      name: name.toUpperCase(),
       cardDesign: 'assets/images/svg/symmetric_card.svg',
       cardNumber: '**** **** **** ${number.characters.takeLast(4).toString()}',
       chip: 'assets/images/svg/silver_chip.svg',

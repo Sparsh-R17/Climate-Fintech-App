@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '/screens/payment_card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/profile_tile.dart';
 import 'edit_card_screen.dart';
+import 'login.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/ProfileScreen';
@@ -14,7 +17,27 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
+User? loggedin;
+
 class _ProfileScreenState extends State<ProfileScreen> {
+  final _auth = FirebaseAuth.instance;
+
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = _auth.currentUser;
+      if (user != null) {
+        loggedin = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   bool _viewCard = false;
   List tileData = [
     {
@@ -83,6 +106,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       IconButton(
                         onPressed: () {
                           //TODO ADD LOGOUT FUNCTION HERE
+                          _auth.signOut();
+                          Navigator.pushReplacementNamed(
+                              context, LoginPage.routeName);
                         },
                         icon: const Icon(
                           Icons.exit_to_app,
@@ -132,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: pageHeight * 0.02,
                           ),
                           Text(
-                            'Sparsh Rajput',
+                            _auth.currentUser!.displayName.toString(),
                             style: GoogleFonts.poppins(
                               fontSize: 20,
                             ),

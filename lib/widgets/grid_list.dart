@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../screens/company_list.dart';
 import '../screens/view_donation_screen.dart';
@@ -38,6 +39,9 @@ class _PageGridState extends State<PageGrid> {
                   );
                 }
               },
+              // child: GridTile(
+              //   child: Image.asset('assets/images/png/animal_grid.png'),
+              // ),
               child: Container(
                 margin: const EdgeInsets.all(15),
                 child: ClipRRect(

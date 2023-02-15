@@ -56,38 +56,49 @@ class AddCardOption extends StatelessWidget {
     final numberController = TextEditingController();
     final cvvController = TextEditingController();
     final dateController = TextEditingController();
-    return Form(
-      autovalidateMode: AutovalidateMode.always,
-      key: _formKey,
-      child: Column(
-        children: [
-          formFieldCard(
-            context,
-            numberController,
-            'Card Number',
-          ),
-          formFieldCard(
-            context,
-            cvvController,
-            'CVV Number',
-          ),
-          formFieldCard(
-            context,
-            dateController,
-            'Expiry date',
-          ),
-          ElevatedButton(
-            onPressed: () {
-              print('hi');
-              Provider.of<PaymentCardProvider>(context, listen: false).addCard(
+    final nameController = TextEditingController();
+    return SingleChildScrollView(
+      child: Form(
+        autovalidateMode: AutovalidateMode.always,
+        key: _formKey,
+        child: Column(
+          children: [
+            formFieldCard(
+              context,
+              nameController,
+              'Name',
+            ),
+            formFieldCard(
+              context,
+              numberController,
+              'Card Number',
+            ),
+            formFieldCard(
+              context,
+              cvvController,
+              'CVV Number',
+            ),
+            formFieldCard(
+              context,
+              dateController,
+              'Expiry date',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('hi');
+                Provider.of<PaymentCardProvider>(context, listen: false)
+                    .addCard(
                   numberController.text,
                   cvvController.text,
-                  dateController.text);
-              Navigator.pop(context);
-            },
-            child: const Text('SUMBIT'),
-          ),
-        ],
+                  dateController.text,
+                  nameController.text,
+                );
+                Navigator.pop(context);
+              },
+              child: const Text('SUMBIT'),
+            ),
+          ],
+        ),
       ),
     );
   }

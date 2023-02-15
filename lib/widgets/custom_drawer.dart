@@ -81,7 +81,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.28,
                               child: FittedBox(
                                 fit: BoxFit.fill,
@@ -98,16 +98,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               height:
                                   MediaQuery.of(context).size.height * 0.002,
                             ),
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.30,
                               child: FittedBox(
                                 fit: BoxFit.fill,
                                 child: Text(
                                   _auth.currentUser!.displayName.toString(),
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 7,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 1,
+                                    fontWeight: FontWeight.w500,
                                   ),
+
+                                  // style: GoogleFonts.inter(
+                                  //   fontWeight: FontWeight.bold,
+                                  //   fontSize: 7,
+                                  // ),
                                 ),
                               ),
                             ),

@@ -3,14 +3,25 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../screens/payment.dart';
 
-class AmountBottomSheet extends StatelessWidget {
+class AmountBottomSheet extends StatefulWidget {
   const AmountBottomSheet({
     super.key,
   });
 
   @override
+  State<AmountBottomSheet> createState() => _AmountBottomSheetState();
+}
+
+class _AmountBottomSheetState extends State<AmountBottomSheet> {
+  final amtController = TextEditingController();
+  @override
+  void dispose() {
+    amtController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final amtController = TextEditingController();
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
       child: Container(
@@ -34,7 +45,7 @@ class AmountBottomSheet extends StatelessWidget {
                 vertical: MediaQuery.of(context).size.height * 0.02,
                 horizontal: MediaQuery.of(context).size.width * 0.1,
               ),
-              child: TextField(
+              child: TextFormField(
                 keyboardType: TextInputType.number,
                 controller: amtController,
                 decoration: InputDecoration(
@@ -67,6 +78,7 @@ class AmountBottomSheet extends StatelessWidget {
                     PaymentPage.routeName,
                     arguments: amtController.text,
                   );
+                  print(amtController.text);
                 },
                 child: const Text('PAY'),
               ),

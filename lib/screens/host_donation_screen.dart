@@ -22,6 +22,18 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
   final TextEditingController ifsccontroller = TextEditingController();
   final TextEditingController amtcontroller = TextEditingController();
 
+  @override
+  void dispose() {
+    namecontroller.dispose();
+    agecontroller.dispose();
+    mobilecontroller.dispose();
+    banknamecontroller.dispose();
+    accnumcontroller.dispose();
+    pannumcontroller.dispose();
+    ifsccontroller.dispose();
+    amtcontroller.dispose();
+    super.dispose();
+  }
 
   Padding formField(
     BuildContext context,
@@ -55,7 +67,10 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
               return 'Age must be greater than 18 to host';
             }
           } else if (varcontroller == accnumcontroller) {
-            if (value!.isEmpty) {
+            if (int.tryParse(value!) == null) {
+              return 'Account number contains only number';
+            }
+            if (value.isEmpty) {
               return '$boxReason cannot be empty';
             }
             if (value.length < 9) {
@@ -104,8 +119,6 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final donationContainer = Provider.of<DonationProvider>(context);
@@ -148,35 +161,50 @@ class _HostDonationScreenState extends State<HostDonationScreen> {
                     );
                     showDialog(
                       context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Donation Hosted Successfully'),
-                        content: SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.5,
-                          child: Column(
-                            children: [
-                              Text('Name: ${namecontroller.text}'),
-                              Text('Age: ${agecontroller.text}'),
-                              Text('Mobile Number: ${mobilecontroller.text}'),
-                              Text('Bank Name: ${banknamecontroller.text}'),
-                              Text('Account No.: ${accnumcontroller.text}'),
-                              Text('IFSC Code: ${ifsccontroller.text}'),
-                              Text('Pan Number: ${pannumcontroller.text}'),
-                            ],
+                      builder: (context) => Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 1,
                           ),
                         ),
-                        actions: [
-                          TextButton(
-                            child: const Text('OK'),
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const TabsScreen(),
-                                ),
-                              );
-                            },
+                        child: AlertDialog(
+                          title: const Text('Documents gone for verification'),
+                          content: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            child: Column(
+                              children: [
+                                Text('Name: ${namecontroller.text}'),
+                                const Divider(),
+                                Text('Age: ${agecontroller.text}'),
+                                const Divider(),
+                                Text('Mobile Number: ${mobilecontroller.text}'),
+                                const Divider(),
+                                Text('Bank Name: ${banknamecontroller.text}'),
+                                const Divider(),
+                                Text('Account No.: ${accnumcontroller.text}'),
+                                const Divider(),
+                                Text('IFSC Code: ${ifsccontroller.text}'),
+                                const Divider(),
+                                Text('Pan Number: ${pannumcontroller.text}'),
+                              ],
+                            ),
                           ),
-                        ],
+                          actions: [
+                            TextButton(
+                              child: const Text('OK'),
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const TabsScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   } else {
