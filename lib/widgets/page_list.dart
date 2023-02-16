@@ -18,12 +18,6 @@ class PageList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            // constraints: BoxConstraints(
-            //   minHeight: MediaQuery.of(context).size.height * 0.12,
-            //   // maxWidth: MediaQuery.of(context).size.width,
-            // ),
-            //
-            // color: Colors.amber,
             margin: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.06,
                 vertical: MediaQuery.of(context).size.width * 0.2),
@@ -70,18 +64,7 @@ class PageList extends StatelessWidget {
                                     MediaQuery.of(context).size.height * 0.1,
                                 child: Image.asset(causesList[index].img)),
                           ),
-                          // Container(
-                          //   constraints: BoxConstraints(
-                          //     maxHeight:
-                          //         MediaQuery.of(context).size.height * 0.06,
-                          //     maxWidth: MediaQuery.of(context).size.width * 0.2,
-                          //     // maxWidth: MediaQuery.of(context).size.width,
-                          //   ),
-                          //   child:
-                          //       SvgPicture.asset('assets/images/svg/solar.svg'),
-                          // ),
-                        ),
-                        // Spacer(),
+                        ),                
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.09,
                           width: MediaQuery.of(context).size.width * 0.55,
