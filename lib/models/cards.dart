@@ -80,16 +80,28 @@ class PaymentCardProvider with ChangeNotifier {
     return [..._userCards];
   }
 
-  void addCard(String number, String cvv, String date, String name) {
+  void addCard(String number, String date, String name, String chip,
+      String type, String logo, String design) {
+    print(PaymentCard(
+      id: (_userCards.length + 1).toString(),
+      name: name.toUpperCase(),
+      cardDesign: design,
+      cardNumber: '**** **** **** ${number.characters.takeLast(4).toString()}',
+      chip: chip,
+      expDate: date,
+      logo: logo,
+      type: type,
+    ));
+
     _userCards.add(PaymentCard(
       id: (_userCards.length + 1).toString(),
       name: name.toUpperCase(),
-      cardDesign: 'assets/images/svg/symmetric_card.svg',
+      cardDesign: design,
       cardNumber: '**** **** **** ${number.characters.takeLast(4).toString()}',
-      chip: 'assets/images/svg/silver_chip.svg',
+      chip: chip,
       expDate: date,
-      logo: 'assets/images/svg/mastercard_logo.svg',
-      type: 'Debit',
+      logo: logo,
+      type: type,
     ));
     notifyListeners();
   }

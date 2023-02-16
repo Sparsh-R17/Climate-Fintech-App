@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../screens/company_list.dart';
 import '../screens/view_donation_screen.dart';
@@ -79,65 +80,69 @@ class _PageGridState extends State<PageGrid> {
                 width: MediaQuery.of(context).size.width * 0.40,
                 margin: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    // color: Colors.amber,
-                    color: causesList[index].frontColor),
+                  borderRadius: BorderRadius.circular(15),
+                  color: causesList[index].frontColor,
+                ),
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            // color: Colors.red,
-                            color: causesList[index].backColor,
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15))),
-                        width: double.infinity,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Text(
-                              causesList[index].title,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'poppins'),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.31,
-                              height: MediaQuery.of(context).size.height * 0.10,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(causesList[index].img),
-                                    fit: BoxFit.fill),
-                              ),
-                            ),
-                          ],
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: causesList[index].backColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
                         ),
                       ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.height *
-                                      0.01),
-                              child: const Text(
-                                'Know More ->',
-                                style: TextStyle(
-                                  fontFamily: 'poppins',
-                                  fontSize: 15,
-                                ),
+                      width: double.infinity,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Text(
+                            causesList[index].title,
+                            style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.005,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.31,
+                            height: MediaQuery.of(context).size.height * 0.10,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(causesList[index].img),
+                                fit: BoxFit.contain,
                               ),
                             ),
-                          ])
-                    ]),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          child: const Text(
+                            'Know More',
+                            style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           },

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +15,44 @@ class EditCardScreen extends StatefulWidget {
   @override
   State<EditCardScreen> createState() => _EditCardScreenState();
 }
+
+var cardHolder;
+var cardNumber;
+var expiryDate;
+int? randomNumber;
+
+var setDesign = [
+  {
+    'design': 'assets/images/svg/purple_card.svg',
+    'chip': 'assets/images/svg/silver_chip.svg',
+    'type': 'Debit',
+    'logo': 'assets/images/svg/mastercard_logo.svg',
+  },
+  {
+    'design': 'assets/images/svg/symmetric_card.svg',
+    'chip': 'assets/images/svg/silver_chip.svg',
+    'type': 'Credit',
+    'logo': 'assets/images/svg/logos_visa.svg',
+  },
+  {
+    'design': 'assets/images/svg/hexa_card.svg',
+    'chip': 'assets/images/svg/gold_chip.svg',
+    'type': 'Credit',
+    'logo': 'assets/images/svg/mastercard_white.svg',
+  },
+  {
+    'design': 'assets/images/svg/grey_card.svg',
+    'chip': 'assets/images/svg/silver_chip.svg',
+    'type': 'Credit',
+    'logo': 'assets/images/svg/mastercard_white.svg',
+  },
+  {
+    'design': 'assets/images/svg/green_design.svg',
+    'chip': 'assets/images/svg/gold_chip.svg',
+    'type': 'Debit',
+    'logo': 'assets/images/svg/mastercard_logo.svg',
+  },
+];
 
 class _EditCardScreenState extends State<EditCardScreen> {
   bool _addCard = false;
@@ -87,6 +127,11 @@ class _AddCardOptionState extends State<AddCardOption> {
     formKey.currentState!.save();
     setState(() {
       formCompleted = true;
+      cardHolder = _newCard.name;
+      cardNumber = _newCard.cardNumber;
+      expiryDate = _newCard.expDate;
+      randomNumber = new Random().nextInt(5);
+      print('Number Generateed $randomNumber');
     });
   }
 
@@ -390,7 +435,7 @@ class _AddCardOptionState extends State<AddCardOption> {
                       ),
               ),
               //^ Card when Form is completed
-              if (formCompleted) CardDecided(pageHeight, pageWidth),
+              if (formCompleted) CardDecided(),
             ],
           ),
         ),
@@ -406,10 +451,31 @@ class _AddCardOptionState extends State<AddCardOption> {
                   ),
                 ),
                 onPressed: () {
-                  _saveForm();
+                  Provider.of<PaymentCardProvider>(context, listen: false)
+                      .addCard(
+                          cardNumber,
+                          expiryDate,
+                          cardHolder,
+                          setDesign[randomNumber!]['chip']!,
+                          setDesign[randomNumber!]['type']!,
+                          setDesign[randomNumber!]['logo']!,
+                          setDesign[randomNumber!]['design']!);
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   'Submit',
+                  style: GoogleFonts.poppins(),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    randomNumber = new Random().nextInt(5);
+                  });
+                  // _saveForm();
+                },
+                child: Text(
+                  'Refresh',
                   style: GoogleFonts.poppins(),
                 ),
               ),
@@ -435,16 +501,159 @@ class _AddCardOptionState extends State<AddCardOption> {
       ],
     );
   }
+}
 
-  Widget CardDecided(double pageHeight, double pageWidth) {
+class CardDecided extends StatelessWidget {
+  const CardDecided({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final pageHeight = MediaQuery.of(context).size.height;
+    final pageWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: [
         SizedBox(
           height: pageHeight * 0.27,
           width: pageWidth * 0.95,
           child: SvgPicture.asset(
-            'assets/images/svg/symmetric_card.svg',
+            setDesign[randomNumber!]['design']!,
             fit: BoxFit.cover,
+          ),
+        ),
+        SizedBox(
+          height: pageHeight * 0.27,
+          width: pageWidth * 0.95,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.025,
+                  right: MediaQuery.of(context).size.width * 0.05,
+                ),
+                child: Text(
+                  setDesign[randomNumber!]['type']!,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.022,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.05,
+                    ),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.09,
+                      height: MediaQuery.of(context).size.height * 0.03,
+                      child: SvgPicture.asset(
+                        setDesign[randomNumber!]['chip']!,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.45,
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          cardNumber,
+                          style: GoogleFonts.lato(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'VALID',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          'THRU',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.015,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2),
+                      child: Text(
+                        expiryDate,
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.033,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      cardHolder,
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.027,
+                      width: MediaQuery.of(context).size.width * 0.12,
+                      child: SvgPicture.asset(
+                        setDesign[randomNumber!]['logo']!,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ],
