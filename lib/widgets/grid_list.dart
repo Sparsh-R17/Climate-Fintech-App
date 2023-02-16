@@ -42,36 +42,102 @@ class _PageGridState extends State<PageGrid> {
               // child: GridTile(
               //   child: Image.asset('assets/images/png/animal_grid.png'),
               // ),
+              // child: Container(
+              //   color: Colors.red,
+              //   margin: const EdgeInsets.all(15),
+              //   child: ClipRRect(
+              //     borderRadius: BorderRadius.circular(20),
+              //     child: Container(
+              //       decoration: BoxDecoration(
+              //         image: DecorationImage(
+              //             image: AssetImage(
+              //               causesList[index].img,
+              //             ),
+              //             fit: BoxFit.fill),
+              //       ),
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           color: Colors.black.withOpacity(0.40),
+              //         ),
+              //         child: Center(
+              //           child: Text(
+              //             causesList[index].title,
+              //             style: const TextStyle(
+              //               color: Colors.white,
+              //               fontStyle: FontStyle.italic,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
               child: Container(
+                height: MediaQuery.of(context).size.height * 0.16,
+                width: MediaQuery.of(context).size.width * 0.40,
                 margin: const EdgeInsets.all(15),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            causesList[index].img,
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.40),
-                      ),
-                      child: Center(
-                        child: Text(
-                          causesList[index].title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    // color: Colors.amber,
+                    color: causesList[index].frontColor),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            // color: Colors.red,
+                            color: causesList[index].backColor,
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15))),
+                        width: double.infinity,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
+                            Text(
+                              causesList[index].title,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'poppins'),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.31,
+                              height: MediaQuery.of(context).size.height * 0.10,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(causesList[index].img),
+                                    fit: BoxFit.fill),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ),
-                ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.height *
+                                      0.01),
+                              child: const Text(
+                                'Know More ->',
+                                style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ])
+                    ]),
               ),
             );
           },
