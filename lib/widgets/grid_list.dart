@@ -124,22 +124,39 @@ class _PageGridState extends State<PageGrid> {
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.01,
-                          ),
-                          child: const Text(
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Padding(
+                          //   padding: EdgeInsets.only(
+                          //     top: MediaQuery.of(context).size.height * 0.01,
+                          //   ),
+                          const Text(
                             'Know More',
                             style: TextStyle(
                               fontFamily: 'poppins',
                               fontSize: 15,
                             ),
                           ),
-                        ),
-                      ],
+                          // ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.01,
+                          ),
+                          // Padding(
+                          //   padding: EdgeInsets.only(
+                          //     top: MediaQuery.of(context).size.height * 0.01,
+                          //   ),
+                          const Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 18,
+                            // ),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
