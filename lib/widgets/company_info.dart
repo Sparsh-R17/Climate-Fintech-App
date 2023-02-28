@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'payment_bottom_sheet.dart';
 
@@ -72,8 +73,8 @@ class _CompanyInfoState extends State<CompanyInfo> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 behavior: SnackBarBehavior.floating,
-                                // showCloseIcon: true,
-                                // closeIconColor: Colors.white,
+                                showCloseIcon: true,
+                                closeIconColor: Colors.white,
                                 content: Text(
                                   'E-mail :- ${widget.email}',
                                 ),
@@ -123,7 +124,12 @@ class _CompanyInfoState extends State<CompanyInfo> {
                     height: pageHeight * 0.01,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrl(
+                        Uri.parse(widget.link),
+                        mode: LaunchMode.inAppWebView,
+                      );
+                    },
                     child: Container(
                       width: pageWidth * 0.28,
                       height: pageHeight * 0.095,
